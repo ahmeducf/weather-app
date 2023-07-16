@@ -1,0 +1,23 @@
+{
+  "name": "weather-app",
+  "version": "0.0.0",
+  "description": "A weather app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ahmeducf/weather-app.git"
+  },
+  "author": "Ahmed Salah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmeducf/weather-app/issues"
+  },
+  "homepage": "https://github.com/ahmeducf/weather-app#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6"
+  }
+}
