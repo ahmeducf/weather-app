@@ -49,7 +49,7 @@ module.exports = merge(common, {
       new CssMinimizerPlugin(),
       new HtmlWebpackPlugin({
         title: 'Task pilot',
-        favicon: './src/assets/favicon.ico',
+        favicon: './src/assets/favicon.svg',
         template: './src/index.html',
         minify: {
           removeAttributeQuotes: true,
