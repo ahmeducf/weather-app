@@ -3,6 +3,12 @@
 
 /* Variables */
 :root {
+  --header-bg-cloudy: #59516e;
+  --header-bg-night: #022d50;
+  --header-bg-sunny: #005986;
+  --body-bg-cloudy: linear-gradient(180deg, #59516e 0%, #fff 100%);
+  --body-bg-night: linear-gradient(180deg, #022d50 0%, #13588b 100%);
+  --body-bg-sunny: linear-gradient(180deg, #005986 0%, #fff 100%);
 }
 
 /* Global styles */
@@ -29,4 +35,140 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+body.sunny {
+  background: var(--body-bg-sunny);
+}
+
+body.cloudy {
+  background: var(--body-bg-cloudy);
+}
+
+body.night {
+  background: var(--body-bg-night);
+}
+
+/* Header */
+body > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  color: #fff;
+  height: 82px;
+}
+
+body.sunny > header {
+  background: var(--header-bg-sunny);
+}
+
+body.cloudy > header {
+  background: var(--header-bg-cloudy);
+}
+
+body.night > header {
+  background: var(--header-bg-night);
+}
+
+header > .logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.logo > a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  outline: none;
+}
+
+header > .search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box > input[type='text'] {
+  height: 30px;
+  border: none;
+  outline: none;
+  background: hsla(0, 0%, 100%, 0.2);
+  border-radius: 20px;
+  padding: 5px 36px;
+  text-align: center;
+  color: #fff;
+  width: 380px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-box > input[type='text']:focus {
+  outline: 5px auto #fff;
+}
+
+.search-box > input[type='text']::placeholder {
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-box > input[type='text']:focus::placeholder {
+  opacity: 0;
+}
+
+button.my-location,
+button.celsius,
+button.fahrenheit {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.search-box > .my-location {
+  position: absolute;
+  right: 6px;
+  top: 2.5px;
+  width: 24px;
+  height: 24px;
+}
+
+header > .metric-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.metric-switcher > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  padding: 3px 16px;
+  border-radius: 20px;
+  background: #fff;
+  color: #000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.metric-switcher > button.celsius {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.metric-switcher > button.fahrenheit {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.metric-switcher > button.active {
+  background: hsla(0, 0%, 100%, 0.2);
+  color: #fff;
 }

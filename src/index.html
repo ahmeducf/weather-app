@@ -6,5 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
   </head>
-  <body></body>
+  <body class="night">
+    <header>
+      <div class="logo">
+        <a href="/" target="_self"><h1>Weather App</h1></a>
+      </div>
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Search City or Zip Code"
+          title="Search City or Zip Code"
+        />
+        <button class="my-location" title="My Location">
+          <img src="./assets/my_location.svg" alt="my location" />
+        </button>
+      </div>
+      <div class="metric-switcher">
+        <button class="celsius active" title="Celsius">°C</button>
+        <button class="fahrenheit" title="Fahrenheit">°F</button>
+      </div>
+    </header>
+  </body>
 </html>
