@@ -18,7 +18,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Task Pilot',
-      favicon: './src/assets/favicon.ico',
+      favicon: './src/assets/favicon.svg',
       template: './src/index.html',
     }),
   ],

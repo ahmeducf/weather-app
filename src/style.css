@@ -1,0 +1,32 @@
+/* Font: Cantarell */
+@import url('https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Variables */
+:root {
+}
+
+/* Global styles */
+html {
+  box-sizing: border-box;
+  font-family: 'Cantarell', 'cursive', system-ui, 'Segoe UI', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+*,
+*::before,
+*::after {
+  /* CSS Reset */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* Catch errors */
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
