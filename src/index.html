@@ -21,10 +21,91 @@
           <img src="./assets/my_location.svg" alt="my location" />
         </button>
       </div>
-      <div class="metric-switcher">
+      <div class="unit-switcher">
         <button class="celsius active" title="Celsius">°C</button>
         <button class="fahrenheit" title="Fahrenheit">°F</button>
       </div>
     </header>
+
+    <main class="content">
+      <section class="summary">
+        <section class="summary__current-conditions">
+          <div class="current-conditions__header">
+            <div class="current-conditions__header__info">
+              <strong class="location">Mahalla Al Kubra, Gharbia, Egypt</strong>
+              As of <span class="timestamp">7:35 pm EEST</span>
+            </div>
+          </div>
+          <div class="current-conditions__info">
+            <div class="temperature">
+              <span class="temp">25°</span>
+            </div>
+            <div class="description">Clear Sky</div>
+            <div class="icon" title="clear night">
+              <img
+                src="//cdn.weatherapi.com/weather/64x64/night/113.png"
+                alt="clear sky"
+              />
+            </div>
+            <div class="high-low">
+              Day
+              <span class="high temp">40°</span>
+              <div class="separator"></div>
+              Night
+              <span class="low temp">20°</span>
+            </div>
+          </div>
+        </section>
+        <section class="summary__air-quality-index">
+          <div class="air-quality-index__header">
+            <div class="title">Air Quality Index</div>
+            <div class="severity">
+              <div class="severity__donut-chart">
+                <svg width="60" height="60" class="donut-chart">
+                  <circle
+                    r="27.5"
+                    cx="30"
+                    cy="30"
+                    transform="rotate(90 30 30)"
+                    style="stroke-width: 5"
+                    class="donut-chart-track"
+                  ></circle>
+                  <circle
+                    r="27.5"
+                    cx="30"
+                    cy="30"
+                    transform="rotate(90 30 30)"
+                    style="
+                      stroke-width: 5;
+                      stroke-dasharray: 57.595865315812866 172.78759594743863;
+                      stroke: #ffff24;
+                    "
+                    class="donut-chart-indicator"
+                  ></circle>
+                  <text
+                    x="50%"
+                    y="55%"
+                    dominant-baseline="middle"
+                    alignment-baseline="middle"
+                    text-anchor="middle"
+                    class="donut-chart-inner-value"
+                  >
+                    56
+                  </text>
+                </svg>
+              </div>
+              <div class="severity__text">
+                <span class="title">Moderate</span>
+                <span class="description"
+                  >Air quality is acceptable; however, for some pollutants there
+                  may be a moderate health concern for a very small number of
+                  people who are unusually sensitive to air pollution.
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
   </body>
 </html>
