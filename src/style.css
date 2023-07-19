@@ -31,6 +31,11 @@ html {
   vertical-align: baseline;
 }
 
+ul,
+li {
+  list-style: none;
+}
+
 /* Body */
 
 body {
@@ -192,12 +197,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
   flex-grow: 1;
   margin-top: 32px;
   width: 100%;
 }
 
-main section.summary {
+main section.summary,
+main section.today-details,
+main section.today-forecast {
   width: 65%;
 }
 
@@ -268,8 +276,8 @@ body.night .summary__current-conditions {
 
 .current-conditions__info > .icon {
   position: absolute;
-  right: 360px;
-  top: 106px;
+  right: 260px;
+  top: 40px;
 }
 
 .current-conditions__info > .description,
@@ -351,4 +359,74 @@ svg.donut-chart circle.donut-chart-track {
   font-size: 0.875rem;
   line-height: 1.25;
   color: #6f7585;
+}
+
+/** Main Today Details **/
+
+.today-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*** Today Details Header **/
+
+.today-details__header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/*** Today Details Info ***/
+
+.today-details__info {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.today-details__info .feels-like .temperature {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+.today-details__info .sunrise-sunset {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sunrise-sunset .sunrise,
+.sunrise-sunset .sunset {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/*** Today Details Info List ***/
+
+.today-details__info-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  column-gap: 16px;
+  grid-auto-flow: column;
+}
+
+.info-list__list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-top: 1px solid #dedede;
+}
+
+.info-list__list-item .value {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
