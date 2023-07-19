@@ -361,9 +361,10 @@ svg.donut-chart circle.donut-chart-track {
   color: #6f7585;
 }
 
-/** Main Today Details **/
+/** Main Today Forecast/Details **/
 
-.today-details {
+.today-details,
+.today-forecast {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -373,9 +374,10 @@ svg.donut-chart circle.donut-chart-track {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 }
 
-/*** Today Details Header **/
+/*** Today Forecast/Details Header **/
 
-.today-details__header {
+.today-details__header,
+.today-forecast__header {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.25;
@@ -425,8 +427,76 @@ svg.donut-chart circle.donut-chart-track {
   border-top: 1px solid #dedede;
 }
 
+.info-list__list-item:last-child {
+  padding-bottom: 0;
+}
+
 .info-list__list-item .value {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+}
+
+/** Main Today Forecast **/
+
+.today-forecast__forecast-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 16px;
+  padding-top: 16px;
+}
+
+.forecast-list__list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-right: 1px solid #dedede;
+  border-image: linear-gradient(
+      180deg,
+      hsla(0, 0%, 87.1%, 0) 0,
+      #dedede 25%,
+      #dedede 70%,
+      hsla(0, 0%, 87.1%, 0) 85%,
+      hsla(0, 0%, 87.1%, 0)
+    )
+    1 100%;
+}
+
+.forecast-list__list-item:last-child {
+  border-right: none;
+}
+
+.forecast-list__list-item .time,
+.forecast-list__list-item .chance-of-rain {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #2b2b2b;
+  text-align: center;
+}
+
+.forecast-list__list-item.current .time,
+.forecast-list__list-item.current .temperature {
+  font-weight: 700;
+}
+
+.forecast-list__list-item .temperature {
+  font-size: 2.25rem;
+  line-height: 0.83;
+  color: #1b4de4;
+}
+
+.forecast-list__list-item .icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forecast-list__list-item .chance-of-rain {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
