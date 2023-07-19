@@ -296,12 +296,23 @@ body.night .summary__current-conditions {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 16px;
   background: #fff;
   color: #000;
   border-radius: 6px;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px 16px;
+}
+
+.air-quality-index__header {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.air-quality-index__severity {
+  display: flex;
+  gap: 24px;
+  padding-left: 10px;
 }
 
 svg.donut-chart {
@@ -322,4 +333,22 @@ svg.donut-chart circle.donut-chart-track {
   color: #2b2b2b;
   font-size: 2.25rem;
   font-weight: 200;
+}
+
+.severity__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 10px;
+}
+
+.severity__text .title {
+  font-size: 1.125rem;
+  line-height: 1.25;
+}
+
+.severity__text .description {
+  font-size: 0.875rem;
+  line-height: 1.25;
+  color: #6f7585;
 }
