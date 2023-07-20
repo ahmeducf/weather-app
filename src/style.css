@@ -37,6 +37,17 @@ li {
   list-style: none;
 }
 
+button.my-location,
+button.celsius,
+button.fahrenheit,
+.slider-container button.prev,
+.slider-container button.next {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 /* Body */
 
 body {
@@ -140,15 +151,6 @@ header > .search-box {
   opacity: 0;
 }
 
-button.my-location,
-button.celsius,
-button.fahrenheit {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
 .search-box > .my-location {
   position: absolute;
   right: 6px;
@@ -207,7 +209,8 @@ main {
 
 main section.summary,
 main section.today-details,
-main section.today-forecast {
+main section.today-forecast,
+main section.hourly-forecast {
   width: 65%;
 }
 
@@ -363,10 +366,10 @@ svg.donut-chart circle.donut-chart-track {
   color: #6f7585;
 }
 
-/** Main Today Forecast/Details **/
-
+/** Main {Today Details, Today Forecast, Hourly Forecast} **/
 .today-details,
-.today-forecast {
+.today-forecast,
+.hourly-forecast {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -376,10 +379,11 @@ svg.donut-chart circle.donut-chart-track {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 }
 
-/*** Today Forecast/Details Header **/
+/** Main {Today Details, Today Forecast, Hourly Forecast} Header **/
 
 .today-details__header,
-.today-forecast__header {
+.today-forecast__header,
+.hourly-forecast__header {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.25;
@@ -429,7 +433,7 @@ svg.donut-chart circle.donut-chart-track {
   border-top: 1px solid #dedede;
 }
 
-.info-list__list-item:last-child {
+.info-list__list-item:last-of-type {
   padding-bottom: 0;
 }
 
@@ -439,9 +443,10 @@ svg.donut-chart circle.donut-chart-track {
   justify-content: flex-end;
 }
 
-/** Main Today Forecast **/
+/** Main {Today Forecast, Hourly Forecast} **/
 
-.today-forecast__forecast-list {
+.today-forecast__forecast-list,
+.hourly-forecast__forecast-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 16px;
@@ -466,7 +471,7 @@ svg.donut-chart circle.donut-chart-track {
     1 100%;
 }
 
-.forecast-list__list-item:last-child {
+.forecast-list__list-item:last-of-type {
   border-right: none;
 }
 
@@ -479,7 +484,8 @@ svg.donut-chart circle.donut-chart-track {
 }
 
 .forecast-list__list-item.current .time,
-.forecast-list__list-item.current .temperature {
+.forecast-list__list-item.current .temperature,
+.forecast-list__list-item.current .chance-of-rain {
   font-weight: 700;
 }
 
@@ -501,4 +507,42 @@ svg.donut-chart circle.donut-chart-track {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/** Main Hourly Forecast Slider **/
+
+.slider-container {
+  position: relative;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  width: auto;
+  height: 100%;
+  color: var(--text-default);
+  font-size: 40px;
+  transition: 0.6s ease;
+  text-align: center;
+  user-select: none;
+}
+
+.prev {
+  left: -10px;
+}
+
+.next {
+  right: -10px;
+}
+
+.prev:not(.disabled):hover,
+.next:not(.disabled):hover {
+  transform: scale(1.1);
+}
+
+.prev.disabled,
+.next.disabled {
+  color: #ccc;
 }
