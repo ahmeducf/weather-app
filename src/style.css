@@ -210,7 +210,8 @@ main {
 main section.summary,
 main section.today-details,
 main section.today-forecast,
-main section.hourly-forecast {
+main section.hourly-forecast,
+main section.pollutants {
   width: 65%;
 }
 
@@ -328,6 +329,8 @@ body.night .summary__current-conditions {
   padding-left: 10px;
 }
 
+/* Donut Chart */
+
 svg.donut-chart {
   border-radius: 50%;
 }
@@ -340,12 +343,32 @@ svg.donut-chart circle.donut-chart-track {
 .donut-chart-indicator {
   fill: transparent;
   transition: stroke-dasharray 0.3s ease;
+  stroke-width: 5;
+}
+
+.donut-chart-indicator.good {
+  stroke: #00e838;
+}
+
+.donut-chart-indicator.moderate {
+  stroke: #ffff24;
+}
+
+.donut-chart-indicator.unhealthy-sensitive {
+  stroke: #ff7200;
+}
+
+.donut-chart-indicator.unhealthy {
+  stroke: #ff0000;
 }
 
 .donut-chart-inner-value {
   color: #2b2b2b;
-  font-size: 2.25rem;
-  font-weight: 200;
+  font-size: 2rem;
+}
+
+.pollutants__list__item .donut-chart-inner-value {
+  font-size: 0.9375rem;
 }
 
 .severity__text {
@@ -366,10 +389,11 @@ svg.donut-chart circle.donut-chart-track {
   color: #6f7585;
 }
 
-/** Main {Today Details, Today Forecast, Hourly Forecast} **/
+/** Main {Today Details, Today Forecast, Hourly Forecast, Pollutants} **/
 .today-details,
 .today-forecast,
-.hourly-forecast {
+.hourly-forecast,
+.pollutants {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -379,11 +403,12 @@ svg.donut-chart circle.donut-chart-track {
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 }
 
-/** Main {Today Details, Today Forecast, Hourly Forecast} Header **/
+/** Main {Today Details, Today Forecast, Hourly Forecast, Pollutants} Header **/
 
 .today-details__header,
 .today-forecast__header,
-.hourly-forecast__header {
+.hourly-forecast__header,
+.pollutants__header {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.25;
@@ -545,4 +570,46 @@ svg.donut-chart circle.donut-chart-track {
 .prev.disabled,
 .next.disabled {
   color: #ccc;
+}
+
+/** Main Pollutants **/
+
+.pollutants__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  column-gap: 16px;
+  row-gap: 16px;
+  padding: 16px;
+}
+
+.pollutants__list__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 24px;
+}
+
+.pollutants__list__item:last-of-type,
+.pollutants__list__item:nth-child(5) {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pollutants__list__item .label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pollutants__list__item .label .name {
+  font-size: 1rem;
+}
+
+.pollutants__list__item .label .severity-text {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #6f7585;
 }
