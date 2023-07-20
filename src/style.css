@@ -613,3 +613,19 @@ svg.donut-chart circle.donut-chart-track {
   line-height: 1.25;
   color: #6f7585;
 }
+
+/* Footer */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  background-color: #fff;
+  color: var(--text-default);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 16px;
+  margin-top: 32px;
+}
