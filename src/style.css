@@ -62,7 +62,7 @@ body {
   color: var(--text-default);
 }
 
-body.sunny {
+body.day {
   background: var(--body-bg-sunny);
 }
 
