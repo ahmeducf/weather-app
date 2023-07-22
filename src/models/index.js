@@ -12,8 +12,8 @@ const APP = (data) => {
   const location = Location(data.location);
   const forecast = Forecast(data);
   const airQuality = AirQuality(data.current.air_quality);
-  const dayParts = DayParts(data.forecast.forecastday.hour);
-  const dayHours = DayHours(data.forecast.forecastday.hour);
+  const dayParts = DayParts(data.forecast.forecastday[0].hour);
+  const dayHours = DayHours(data.forecast.forecastday[0].hour);
 
   const getLocation = () => location;
   const getForecast = () => forecast;

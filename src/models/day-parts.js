@@ -59,34 +59,27 @@ const DayParts = (hoursForecast) => {
   hoursForecast.forEach((hour) => {
     if (
       isWithinInterval(new Date(hour.time), {
-        start: new Date(hour.sunrise),
-        end: new Date(hour.sunset),
+        start: setHours(new Date(hour.time), 5),
+        end: setHours(new Date(hour.time), 11),
       })
     ) {
-      if (
-        isWithinInterval(new Date(hour.time), {
-          start: setHours(new Date(hour.time), 5),
-          end: setHours(new Date(hour.time), 11),
-        })
-      ) {
-        morningHours.push(hour);
-      } else if (
-        isWithinInterval(new Date(hour.time), {
-          start: setHours(new Date(hour.time), 12),
-          end: setHours(new Date(hour.time), 16),
-        })
-      ) {
-        afternoonHours.push(hour);
-      } else if (
-        isWithinInterval(new Date(hour.time), {
-          start: setHours(new Date(hour.time), 17),
-          end: setHours(new Date(hour.time), 20),
-        })
-      ) {
-        eveningHours.push(hour);
-      } else {
-        overnightHours.push(hour);
-      }
+      morningHours.push(hour);
+    } else if (
+      isWithinInterval(new Date(hour.time), {
+        start: setHours(new Date(hour.time), 12),
+        end: setHours(new Date(hour.time), 16),
+      })
+    ) {
+      afternoonHours.push(hour);
+    } else if (
+      isWithinInterval(new Date(hour.time), {
+        start: setHours(new Date(hour.time), 17),
+        end: setHours(new Date(hour.time), 20),
+      })
+    ) {
+      eveningHours.push(hour);
+    } else {
+      overnightHours.push(hour);
     }
   });
 
