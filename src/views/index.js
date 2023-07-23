@@ -23,7 +23,10 @@ const initViews = (app) => {
     conditionText.toLowerCase().includes('cloud') ||
     conditionText.toLowerCase().includes('overcast') ||
     conditionText.toLowerCase().includes('fog') ||
-    conditionText.toLowerCase().includes('mist')
+    conditionText.toLowerCase().includes('mist') ||
+    conditionText.toLowerCase().includes('haze') ||
+    conditionText.toLowerCase().includes('smoke') ||
+    conditionText.toLowerCase().includes('dust')
   ) {
     document.body.classList.add('cloudy');
   } else if (isDay) {

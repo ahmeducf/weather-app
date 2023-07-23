@@ -3,3 +3,4 @@ export const HIDE_LOADING_COMPONENT = Symbol('HIDE_LOADING_COMPONENT');
 export const RENDER_CONTENT = Symbol('RENDER_CONTENT');
 export const FETCH_ERROR = Symbol('FETCH_ERROR');
 export const UNIT_CHANGE = Symbol('UNIT_CHANGE');
+export const USE_MY_LOCATION_REQUESTED = Symbol('USE_MY_LOCATION_REQUESTED');
