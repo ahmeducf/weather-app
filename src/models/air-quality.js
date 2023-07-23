@@ -31,15 +31,7 @@ const Pollutant = (pollutant) => {
 };
 
 const AirQuality = (data) => {
-  if (
-    !data ||
-    !data.co ||
-    !data.no2 ||
-    !data.o3 ||
-    !data.so2 ||
-    !data.pm2_5 ||
-    !data.pm10
-  ) {
+  if (!data) {
     throw new Error('AirQuality must be initialized with data');
   }
 

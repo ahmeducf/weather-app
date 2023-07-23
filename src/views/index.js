@@ -8,13 +8,19 @@ import {
   showLoadingComponent,
   hideLoadingComponent,
 } from './loading-component';
+import renderDayParts from './sections/day-parts';
 import { renderSummaryConditions, renderSummaryAqi } from './sections/summary';
 
 const initViews = (app) => {
   const isDay = app.getForecast().isDayTime();
   const conditionText = app.getForecast().getConditionText();
 
-  if (conditionText.includes('cloud')) {
+  if (
+    conditionText.toLowerCase().includes('cloud') ||
+    conditionText.toLowerCase().includes('overcast') ||
+    conditionText.toLowerCase().includes('fog') ||
+    conditionText.toLowerCase().includes('mist')
+  ) {
     document.body.classList.add('cloudy');
   } else if (isDay) {
     document.body.classList.add('day');
@@ -30,6 +36,7 @@ const init = () => {
     initViews(app);
     renderSummaryConditions(app);
     renderSummaryAqi(app);
+    renderDayParts(app);
   });
 };
 

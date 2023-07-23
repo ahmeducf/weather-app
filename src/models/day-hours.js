@@ -15,7 +15,7 @@ const DayHour = (hour) => {
   const isCurrent = () => isSameHour(new Date(hour.time), new Date());
 
   const getTime = () => time;
-  const getIcon = () => icon;
+  const getIcon = () => icon.replace('64x64', '128x128');
   const getText = () => text;
   const getCelsiusTemperature = () => celsiusTemperature;
   const getFahrenheitTemperature = () => fahrenheitTemperature;

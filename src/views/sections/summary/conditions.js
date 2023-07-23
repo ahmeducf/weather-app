@@ -14,7 +14,9 @@ const renderSummaryConditions = (app) => {
   const conditionIconDiv = document.querySelector(
     '.current-conditions__info .icon',
   );
-  const conditionIconImg = conditionIconDiv.firstChild;
+  const conditionIconImg = document.querySelector(
+    '.current-conditions__info .icon img',
+  );
 
   const highTemperatureSpan = document.querySelector(
     '.current-conditions__info .high-low .temp.high',

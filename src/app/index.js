@@ -15,7 +15,9 @@ const init = () => {
     .then((data) => {
       const app = App(data);
       pubsub.publish(RENDER_CONTENT, app);
-      pubsub.publish(HIDE_LOADING_COMPONENT);
+      setTimeout(() => {
+        pubsub.publish(HIDE_LOADING_COMPONENT);
+      }, 300);
     })
     .catch((error) => {
       pubsub.publish(FETCH_ERROR, error);

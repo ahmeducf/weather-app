@@ -1,32 +1,32 @@
 import { isWithinInterval, setHours } from 'date-fns';
 
-const DayPart = (dayPartHours, name) => {
-  const { icon } = dayPartHours[0].condition;
-  const { text } = dayPartHours[0].condition;
+const DayPart = (localtime, dayPartHours, name) => {
+  const { length } = dayPartHours;
+  const medianIndex = Math.floor(length / 2);
 
   const averageCelsiusTemperature = Math.round(
-    dayPartHours.reduce((total, hour) => total + hour.temp_c, 0) /
-      dayPartHours.length,
+    dayPartHours[medianIndex].temp_c,
   );
+
   const averageFahrenheitTemperature = Math.round(
-    dayPartHours.reduce((total, hour) => total + hour.temp_f, 0) /
-      dayPartHours.length,
+    dayPartHours[medianIndex].temp_f,
   );
 
   const averageChanceOfRain = Math.round(
-    dayPartHours.reduce((total, hour) => total + hour.chance_of_rain, 0) /
-      dayPartHours.length,
+    dayPartHours[medianIndex].chance_of_rain,
   );
 
+  const { text, icon } = dayPartHours[medianIndex].condition;
+
   const getName = () => name;
-  const getIcon = () => icon;
+  const getIcon = () => icon.replace('64x64', '128x128');
   const getText = () => text;
-  const getAverageCelsiusTemperature = () => averageCelsiusTemperature;
-  const getAverageFahrenheitTemperature = () => averageFahrenheitTemperature;
-  const getAverageChanceOfRain = () => averageChanceOfRain;
+  const getMedianCelsiusTemperature = () => averageCelsiusTemperature;
+  const getMedianFahrenheitTemperature = () => averageFahrenheitTemperature;
+  const getMedianChanceOfRain = () => averageChanceOfRain;
 
   const isCurrent = () => {
-    const now = new Date();
+    const now = new Date(localtime);
     const start = setHours(
       now,
       dayPartHours[0].time.split(' ')[1].split(':')[0],
@@ -43,14 +43,17 @@ const DayPart = (dayPartHours, name) => {
     getName,
     getIcon,
     getText,
-    getAverageCelsiusTemperature,
-    getAverageFahrenheitTemperature,
-    getAverageChanceOfRain,
+    getMedianCelsiusTemperature,
+    getMedianFahrenheitTemperature,
+    getMedianChanceOfRain,
     isCurrent,
   };
 };
 
-const DayParts = (hoursForecast) => {
+const DayParts = (data) => {
+  const hoursForecast = data.forecast.forecastday[0].hour;
+  const { localtime } = data.location;
+
   const morningHours = [];
   const afternoonHours = [];
   const eveningHours = [];
@@ -74,7 +77,7 @@ const DayParts = (hoursForecast) => {
     } else if (
       isWithinInterval(new Date(hour.time), {
         start: setHours(new Date(hour.time), 17),
-        end: setHours(new Date(hour.time), 20),
+        end: setHours(new Date(hour.time), 23),
       })
     ) {
       eveningHours.push(hour);
@@ -83,10 +86,10 @@ const DayParts = (hoursForecast) => {
     }
   });
 
-  const getMorning = () => DayPart(morningHours, 'Morning');
-  const getAfternoon = () => DayPart(afternoonHours, 'Afternoon');
-  const getEvening = () => DayPart(eveningHours, 'Evening');
-  const getOvernight = () => DayPart(overnightHours, 'Overnight');
+  const getMorning = () => DayPart(localtime, morningHours, 'Morning');
+  const getAfternoon = () => DayPart(localtime, afternoonHours, 'Afternoon');
+  const getEvening = () => DayPart(localtime, eveningHours, 'Evening');
+  const getOvernight = () => DayPart(localtime, overnightHours, 'Overnight');
 
   const getCurrent = () => {
     const current = [getMorning(), getAfternoon(), getEvening(), getOvernight()]

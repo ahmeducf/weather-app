@@ -4,7 +4,7 @@ const Forecast = (data) => {
   const forecastTime = data.current.last_updated;
   const isDay = data.current.is_day;
   const conditionText = data.current.condition.text;
-  const conditionIcon = data.current.condition.icon;
+  const conditionIcon = data.current.condition.icon.replace('64x64', '128x128');
 
   const celsiusTemperature = Math.round(data.current.temp_c);
   const fahrenheitTemperature = Math.round(data.current.temp_f);
