@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import { getHours, isSameHour } from 'date-fns';
 
 const DayHour = (localtime, hour) => {
@@ -20,6 +21,13 @@ const DayHour = (localtime, hour) => {
   const getCelsiusTemperature = () => celsiusTemperature;
   const getFahrenheitTemperature = () => fahrenheitTemperature;
   const getChanceOfRain = () => chanceOfRain;
+  const getHourIndexInSortedArray = () => {
+    const hour = time.split(':')[0];
+    const amOrPm = time.split(' ')[1];
+    const index = amOrPm === 'AM' ? Number(hour) : Number(hour) + 12;
+
+    return index;
+  };
 
   return {
     getTime,
@@ -29,6 +37,7 @@ const DayHour = (localtime, hour) => {
     getFahrenheitTemperature,
     getChanceOfRain,
     isCurrent,
+    getHourIndexInSortedArray,
   };
 };
 

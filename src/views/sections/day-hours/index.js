@@ -1,22 +1,17 @@
 import DayHour from './day-hour';
 import handleSliderChange from './slider';
 
-const getIndexInSortedArrayfromHourTime = (time) => {
-  const hour = time.split(':')[0];
-  const amOrPm = time.split(' ')[1];
-  const index = amOrPm === 'AM' ? Number(hour) : Number(hour) + 12;
-
-  return index;
-};
-
 const renderSliderItems = (app) => {
   const dayHours = app.getDayHours();
   const hours = dayHours.getHours();
 
-  const currentHourIndex = getIndexInSortedArrayfromHourTime(
-    dayHours.getCurrent().getTime(),
-  );
-  const startIndex = currentHourIndex - (currentHourIndex % 4);
+  const currentHourIndex = dayHours.getCurrent().getHourIndexInSortedArray();
+
+  let startIndex = currentHourIndex;
+  if (currentHourIndex > 20) {
+    startIndex = currentHourIndex - (currentHourIndex % 4);
+  }
+
   let indexCounter = startIndex;
 
   const dayHoursList = document.querySelector(
@@ -45,7 +40,7 @@ const renderSliderItems = (app) => {
 
 const renderDayHours = (app) => {
   renderSliderItems(app);
-  handleSliderChange();
+  handleSliderChange(app);
 };
 
 export default renderDayHours;
