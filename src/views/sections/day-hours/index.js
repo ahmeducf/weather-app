@@ -12,21 +12,20 @@ const getIndexInSortedArrayfromHourTime = (time) => {
 const renderSliderItems = (app) => {
   const dayHours = app.getDayHours();
   const hours = dayHours.getHours();
+
   const currentHourIndex = getIndexInSortedArrayfromHourTime(
     dayHours.getCurrent().getTime(),
   );
-  let indexCounter = currentHourIndex;
+  const startIndex = currentHourIndex - (currentHourIndex % 4);
+  let indexCounter = startIndex;
 
   const dayHoursList = document.querySelector(
     '.hourly-forecast__forecast-list',
   );
 
-  const firstFourHoursFromCurrentHour = hours.slice(
-    currentHourIndex,
-    currentHourIndex + 4,
-  );
+  const firstFourHoursFromStartIndex = hours.slice(startIndex, startIndex + 4);
 
-  firstFourHoursFromCurrentHour.forEach((hour) => {
+  firstFourHoursFromStartIndex.forEach((hour) => {
     const hourComponent = DayHour(app, hour, indexCounter);
     indexCounter += 1;
 
