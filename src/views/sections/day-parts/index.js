@@ -23,7 +23,9 @@ const renderDayParts = (app) => {
     const temperatureDiv = listItem.querySelector('.temperature');
     const iconDiv = listItem.querySelector('.icon');
     const iconImg = listItem.querySelector('.icon img');
-    const chanceOfRainDiv = listItem.querySelector('.chance-of-rain');
+    const chanceOfRainDiv = listItem.querySelector(
+      '.chance-of-rain .percentage',
+    );
     const dayPart = listItem.dataset.part;
 
     if (dayPart === MORNING) {

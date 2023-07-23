@@ -1,4 +1,4 @@
-import { isThisHour } from 'date-fns';
+import { isSameHour } from 'date-fns';
 
 const Forecast = (data) => {
   const forecastTime = data.current.last_updated;
@@ -30,15 +30,15 @@ const Forecast = (data) => {
   const moonPhase = data.forecast.forecastday[0].astro.moon_phase;
   const sunriseTime = data.forecast.forecastday[0].astro.sunrise;
   const sunsetTime = data.forecast.forecastday[0].astro.sunset;
-  const feelsLikeCelsiusTemperature = data.current.feelslike_c;
-  const feelsLikeFahrenheitTemperature = data.current.feelslike_f;
+  const feelsLikeCelsiusTemperature = Math.round(data.current.feelslike_c);
+  const feelsLikeFahrenheitTemperature = Math.round(data.current.feelslike_f);
 
   let dewPointCelsiusTemperature = null;
   let dewPointFahrenheitTemperature = null;
   data.forecast.forecastday[0].hour.forEach((hour) => {
-    if (isThisHour(new Date(hour.time))) {
-      dewPointCelsiusTemperature = hour.dewpoint_c;
-      dewPointFahrenheitTemperature = hour.dewpoint_f;
+    if (isSameHour(new Date(forecastTime), new Date(hour.time))) {
+      dewPointCelsiusTemperature = Math.round(hour.dewpoint_c);
+      dewPointFahrenheitTemperature = Math.round(hour.dewpoint_f);
     }
   });
 

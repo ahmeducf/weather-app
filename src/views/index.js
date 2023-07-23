@@ -10,6 +10,7 @@ import {
 } from './loading-component';
 import renderDayParts from './sections/day-parts';
 import { renderSummaryConditions, renderSummaryAqi } from './sections/summary';
+import renderTodayDetails from './sections/today-details';
 
 const initViews = (app) => {
   const isDay = app.getForecast().isDayTime();
@@ -37,6 +38,7 @@ const init = () => {
     renderSummaryConditions(app);
     renderSummaryAqi(app);
     renderDayParts(app);
+    renderTodayDetails(app);
   });
 };
 
