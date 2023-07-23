@@ -12,7 +12,7 @@ const Location = (data) => {
     throw new Error('Location must be initialized with data');
   }
 
-  const name = `${data.name}, ${data.region}, ${data.country}`;
+  const name = `${data.name}, ${data.country}`;
   const localTime = format(new Date(data.localtime), 'h:mm a z', {
     timeZone: data.tz_id,
   });

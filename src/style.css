@@ -262,7 +262,8 @@ body.night .summary__current-conditions {
 }
 
 .current-conditions__header__info {
-  font-size: 1.125rem;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .current-conditions__header__info .location {
@@ -350,25 +351,29 @@ svg.donut-chart circle.donut-chart-track {
   stroke-width: 5;
 }
 
-.donut-chart-indicator.good {
+svg.donut-chart.good .donut-chart-indicator {
   stroke: #00e838;
 }
 
-.donut-chart-indicator.moderate {
+svg.donut-chart.moderate .donut-chart-indicator {
   stroke: #ffff24;
 }
 
-.donut-chart-indicator.unhealthy-sensitive {
+svg.donut-chart.unhealthy-for-sensitive-groups .donut-chart-indicator {
   stroke: #ff7200;
 }
 
-.donut-chart-indicator.unhealthy {
+svg.donut-chart.very-unhealthy .donut-chart-indicator {
   stroke: #ff0000;
+}
+
+svg.donut-chart.hazardous .donut-chart-indicator {
+  stroke: #8f3f97;
 }
 
 .donut-chart-inner-value {
   color: #2b2b2b;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 
 .pollutants__list__item .donut-chart-inner-value {
@@ -689,5 +694,5 @@ svg.donut-chart circle.donut-chart-track {
 }
 
 body.loading {
-  background-color: #dedede;
+  background: #dedede !important;
 }

@@ -8,6 +8,7 @@ import {
   showLoadingComponent,
   hideLoadingComponent,
 } from './loading-component';
+import { renderSummaryConditions, renderSummaryAqi } from './sections/summary';
 
 const initViews = (app) => {
   const isDay = app.getForecast().isDayTime();
@@ -27,7 +28,8 @@ const init = () => {
   pubsub.subscribe(HIDE_LOADING_COMPONENT, hideLoadingComponent);
   pubsub.subscribe(RENDER_CONTENT, (app) => {
     initViews(app);
-    console.log(app);
+    renderSummaryConditions(app);
+    renderSummaryAqi(app);
   });
 };
 

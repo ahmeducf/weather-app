@@ -3,6 +3,7 @@ import Forecast from './forecast';
 import DayParts from './day-parts';
 import DayHours from './day-hours';
 import AirQuality from './air-quality';
+import { CELSIUS } from '../app/constants';
 
 const APP = (data) => {
   if (!data || !data.location || !data.current || !data.forecast) {
@@ -14,12 +15,14 @@ const APP = (data) => {
   const airQuality = AirQuality(data.current.air_quality);
   const dayParts = DayParts(data.forecast.forecastday[0].hour);
   const dayHours = DayHours(data.forecast.forecastday[0].hour);
+  const TemperatureFormat = CELSIUS;
 
   const getLocation = () => location;
   const getForecast = () => forecast;
   const getDayParts = () => dayParts;
   const getDayHours = () => dayHours;
   const getAirQuality = () => airQuality;
+  const isCelsius = () => TemperatureFormat === CELSIUS;
 
   return {
     getLocation,
@@ -27,6 +30,7 @@ const APP = (data) => {
     getDayParts,
     getDayHours,
     getAirQuality,
+    isCelsius,
   };
 };
 

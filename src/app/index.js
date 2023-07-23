@@ -19,6 +19,7 @@ const init = () => {
     })
     .catch((error) => {
       pubsub.publish(FETCH_ERROR, error);
+      console.error(error);
     });
 };
 

@@ -43,10 +43,13 @@ const AirQuality = (data) => {
     throw new Error('AirQuality must be initialized with data');
   }
 
-  const { co, no2, o3, so2, pm2_5, pm10 } = data;
+  const { no2, so2, pm2_5, pm10 } = data;
+  let { co, o3 } = data;
+  co -= 170;
+  o3 -= 30;
 
   const getAirQualityIndex = () => {
-    const airQualityIndex = Math.max(co, no2, o3, so2, pm2_5, pm10);
+    const airQualityIndex = Math.round(Math.max(co, no2, o3, so2, pm2_5, pm10));
     return airQualityIndex;
   };
 
@@ -69,6 +72,31 @@ const AirQuality = (data) => {
     return airQualityIndexText;
   };
 
+  const getAirQualityIndexDescription = () => {
+    const airQualityIndex = getAirQualityIndex();
+    let airQualityIndexDescription = '';
+    if (airQualityIndex <= 50) {
+      airQualityIndexDescription =
+        'Air quality is considered satisfactory, and air pollution poses little or no risk';
+    } else if (airQualityIndex <= 100) {
+      airQualityIndexDescription =
+        'Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution';
+    } else if (airQualityIndex <= 150) {
+      airQualityIndexDescription =
+        'Members of sensitive groups may experience health effects. The general public is not likely to be affected';
+    } else if (airQualityIndex <= 200) {
+      airQualityIndexDescription =
+        'Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects';
+    } else if (airQualityIndex <= 300) {
+      airQualityIndexDescription =
+        'Health warnings of emergency conditions. The entire population is more likely to be affected';
+    } else {
+      airQualityIndexDescription =
+        'Health alert: everyone may experience more serious health effects';
+    }
+    return airQualityIndexDescription;
+  };
+
   const getCO = () => Pollutant(co);
   const getNO2 = () => Pollutant(no2);
   const getO3 = () => Pollutant(o3);
@@ -79,6 +107,7 @@ const AirQuality = (data) => {
   return {
     getAirQualityIndex,
     getAirQualityIndexText,
+    getAirQualityIndexDescription,
     getCO,
     getNO2,
     getO3,
