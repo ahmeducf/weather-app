@@ -364,8 +364,12 @@ svg.donut-chart.unhealthy-for-sensitive-groups .donut-chart-indicator {
   stroke: #ff7200;
 }
 
-svg.donut-chart.very-unhealthy .donut-chart-indicator {
+svg.donut-chart.unhealthy .donut-chart-indicator {
   stroke: #ff0000;
+}
+
+svg.donut-chart.very-unhealthy .donut-chart-indicator {
+  stroke: #ba0d00;
 }
 
 svg.donut-chart.hazardous .donut-chart-indicator {

@@ -36,7 +36,7 @@ const Forecast = (data) => {
   let dewPointCelsiusTemperature = null;
   let dewPointFahrenheitTemperature = null;
   data.forecast.forecastday[0].hour.forEach((hour) => {
-    if (isSameHour(new Date(forecastTime), new Date(hour.time))) {
+    if (isSameHour(new Date(data.location.localtime), new Date(hour.time))) {
       dewPointCelsiusTemperature = Math.round(hour.dewpoint_c);
       dewPointFahrenheitTemperature = Math.round(hour.dewpoint_f);
     }

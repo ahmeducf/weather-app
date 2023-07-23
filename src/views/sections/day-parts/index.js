@@ -8,7 +8,7 @@ const renderDayParts = (app) => {
   locationSpan.textContent = app.getLocation().getName();
 
   const dayPartsListItems = document.querySelectorAll(
-    '.forecast-list__list-item',
+    '.today-forecast__forecast-list .forecast-list__list-item',
   );
 
   const dayParts = app.getDayParts();
