@@ -9,6 +9,7 @@ import {
   hideLoadingComponent,
 } from './loading-component';
 import renderDayParts from './sections/day-parts';
+import renderPollutants from './sections/pollutants';
 import { renderSummaryConditions, renderSummaryAqi } from './sections/summary';
 import renderTodayDetails from './sections/today-details';
 
@@ -39,6 +40,7 @@ const init = () => {
     renderSummaryAqi(app);
     renderDayParts(app);
     renderTodayDetails(app);
+    renderPollutants(app);
   });
 };
 
