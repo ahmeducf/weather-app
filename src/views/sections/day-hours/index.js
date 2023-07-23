@@ -17,6 +17,7 @@ const renderSliderItems = (app) => {
   const dayHoursList = document.querySelector(
     '.hourly-forecast__forecast-list',
   );
+  dayHoursList.innerHTML = '';
 
   const firstFourHoursFromStartIndex = hours.slice(startIndex, startIndex + 4);
 

@@ -10,6 +10,7 @@ import {
 } from './loading-component';
 import renderDayHours from './sections/day-hours';
 import renderDayParts from './sections/day-parts';
+import renderHeader from './sections/header';
 import renderPollutants from './sections/pollutants';
 import { renderSummaryConditions, renderSummaryAqi } from './sections/summary';
 import renderTodayDetails from './sections/today-details';
@@ -37,12 +38,14 @@ const init = () => {
   pubsub.subscribe(HIDE_LOADING_COMPONENT, hideLoadingComponent);
   pubsub.subscribe(RENDER_CONTENT, (app) => {
     initViews(app);
+
+    renderHeader(app);
     renderSummaryConditions(app);
     renderSummaryAqi(app);
     renderDayParts(app);
     renderTodayDetails(app);
-    renderPollutants(app);
     renderDayHours(app);
+    renderPollutants(app);
   });
 };
 

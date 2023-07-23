@@ -16,8 +16,8 @@ const DayHour = (app, hour, index) => {
   const tempSpan = document.createElement('span');
   tempSpan.classList.add('temp');
   tempSpan.textContent = app.isCelsius()
-    ? `${hour.getCelsiusTemperature()}°`
-    : `${hour.getFahrenheitTemperature()}°`;
+    ? `${hour.getCelsiusTemperature()}°C`
+    : `${hour.getFahrenheitTemperature()}°F`;
 
   const iconDiv = document.createElement('div');
   iconDiv.classList.add('icon');

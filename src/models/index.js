@@ -15,7 +15,7 @@ const APP = (data) => {
   const airQuality = AirQuality(data.current.air_quality);
   const dayParts = DayParts(data);
   const dayHours = DayHours(data);
-  const TemperatureFormat = CELSIUS;
+  let TemperatureFormat = CELSIUS;
 
   const getLocation = () => location;
   const getForecast = () => forecast;
@@ -23,6 +23,9 @@ const APP = (data) => {
   const getDayHours = () => dayHours;
   const getAirQuality = () => airQuality;
   const isCelsius = () => TemperatureFormat === CELSIUS;
+  const setTemperatureFormat = (format) => {
+    TemperatureFormat = format;
+  };
 
   return {
     getLocation,
@@ -31,6 +34,7 @@ const APP = (data) => {
     getDayHours,
     getAirQuality,
     isCelsius,
+    setTemperatureFormat,
   };
 };
 
