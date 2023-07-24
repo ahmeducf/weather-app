@@ -10,10 +10,14 @@ I started this project to practice Asynchronous JavaScript and to learn how to u
 - Use geolocation to get the current weather forecast of the user's location
 - Auto suggest cities as the user types in the search bar
 - Ability to switch between Celsius and Fahrenheit
+- Display hourly weather forecast
+- Showing loading spinner for the user while fetching data
 
 ## Demo
 
 Try the app deployed on github pages: [Weather App](https://ahmeducf.github.io/weather-app/)
+
+![Weather App Demo](./demo/demo.gif)
 
 ## Technologies Used
 
