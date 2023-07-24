@@ -19,6 +19,6 @@ export const hideLoadingComponent = () => {
     child.classList.remove('hidden');
   });
 
-  const loadingComponent = document.querySelector('.loader');
+  const loadingComponent = document.querySelector('body > .loader');
   document.body.removeChild(loadingComponent);
 };

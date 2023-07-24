@@ -3,6 +3,8 @@ import {
   HIDE_LOADING_COMPONENT,
   RENDER_CONTENT,
   SHOW_LOADING_COMPONENT,
+  SHOW_SEARCH_LOADING_COMPONENT,
+  SHOW_SEARCH_LOCATION_RESULT,
 } from '../pubsub/events-types';
 import {
   showLoadingComponent,
@@ -11,6 +13,10 @@ import {
 import renderDayHours from './sections/day-hours';
 import renderDayParts from './sections/day-parts';
 import renderHeader from './sections/header';
+import {
+  showSearchLoadingComponent,
+  showSearchResults,
+} from './sections/header/search-box/search-locations';
 import renderPollutants from './sections/pollutants';
 import { renderSummaryConditions, renderSummaryAqi } from './sections/summary';
 import renderTodayDetails from './sections/today-details';
@@ -34,11 +40,24 @@ const initViews = (app) => {
   } else {
     document.body.classList.add('night');
   }
+
+  document.body.addEventListener('click', (e) => {
+    const isSearchResults = e.target.closest('.search-results');
+
+    if (!isSearchResults) {
+      const searchResults = document.querySelector('.search-results');
+      searchResults.classList.add('hidden');
+    }
+  });
 };
 
 const init = () => {
   pubsub.subscribe(SHOW_LOADING_COMPONENT, showLoadingComponent);
   pubsub.subscribe(HIDE_LOADING_COMPONENT, hideLoadingComponent);
+
+  pubsub.subscribe(SHOW_SEARCH_LOADING_COMPONENT, showSearchLoadingComponent);
+  pubsub.subscribe(SHOW_SEARCH_LOCATION_RESULT, showSearchResults);
+
   pubsub.subscribe(RENDER_CONTENT, (app) => {
     initViews(app);
 

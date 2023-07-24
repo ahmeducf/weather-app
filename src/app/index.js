@@ -6,9 +6,17 @@ import {
   FETCH_ERROR,
   UNIT_CHANGE,
   USE_MY_LOCATION_REQUESTED,
+  SEARCH_LOCATION,
+  SHOW_SEARCH_LOADING_COMPONENT,
+  SHOW_SEARCH_LOCATION_RESULT,
+  FETCH_SELECTED_LOCATION,
 } from '../pubsub/events-types';
 import App from '../models';
-import { fetchForecastData, getUserPosition } from '../services';
+import {
+  fetchForecastData,
+  fetchAutoComplete,
+  getUserPosition,
+} from '../services';
 
 const fetchSuccess = (data) => {
   const app = App(data);
@@ -46,9 +54,31 @@ const subscribeToMyLocationRequest = (app) => {
   });
 };
 
+const subscribeToSearchLocation = (app) => {
+  pubsub.subscribe(SEARCH_LOCATION, async (query) => {
+    pubsub.publish(SHOW_SEARCH_LOADING_COMPONENT);
+
+    fetchAutoComplete(query)
+      .then((results) => {
+        pubsub.publish(SHOW_SEARCH_LOCATION_RESULT, results);
+      })
+      .catch(fetchError);
+  });
+};
+
+const subscribeToFetchSelectedLocation = (app) => {
+  pubsub.subscribe(FETCH_SELECTED_LOCATION, async (query) => {
+    pubsub.publish(SHOW_LOADING_COMPONENT);
+
+    fetchForecastData(query).then(fetchSuccess).catch(fetchError);
+  });
+};
+
 const subscribeToEvents = (app) => {
   subscribeToUnitChange(app);
   subscribeToMyLocationRequest(app);
+  subscribeToSearchLocation(app);
+  subscribeToFetchSelectedLocation(app);
 };
 
 const init = () => {
