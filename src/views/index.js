@@ -35,10 +35,13 @@ const initViews = (app) => {
     conditionText.toLowerCase().includes('dust')
   ) {
     document.body.classList.add('cloudy');
+    document.body.classList.remove('day', 'night');
   } else if (isDay) {
     document.body.classList.add('day');
+    document.body.classList.remove('night', 'cloudy');
   } else {
     document.body.classList.add('night');
+    document.body.classList.remove('day', 'cloudy');
   }
 
   document.body.addEventListener('click', (e) => {

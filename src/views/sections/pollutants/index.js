@@ -17,18 +17,50 @@ const renderPollutants = (app) => {
     const setDonutChartIndicator = (polutantIndex, svg, indicator) => {
       if (polutantIndex <= 50) {
         svg.classList.add('good');
+        svg.classList.remove(
+          'moderate',
+          'unhealthy-for-sensitive-groups',
+          'unhealthy',
+          'very-unhealthy',
+          'hazardous',
+        );
+
         indicator.style.strokeDasharray =
           '25.65634000431664 153.93804002589985';
       } else if (polutantIndex <= 100) {
         svg.classList.add('moderate');
+        svg.classList.remove(
+          'good',
+          'unhealthy-for-sensitive-groups',
+          'unhealthy',
+          'very-unhealthy',
+          'hazardous',
+        );
+
         indicator.style.strokeDasharray =
           '51.31268000863328 153.93804002589985';
       } else if (polutantIndex <= 150) {
         svg.classList.add('unhealthy-for-sensitive-groups');
+        svg.classList.remove(
+          'good',
+          'moderate',
+          'unhealthy',
+          'very-unhealthy',
+          'hazardous',
+        );
+
         indicator.style.strokeDasharray =
           '76.96902001294993 153.93804002589985';
       } else if (polutantIndex <= 200) {
         svg.classList.add('unhealthy');
+        svg.classList.remove(
+          'good',
+          'moderate',
+          'unhealthy-for-sensitive-groups',
+          'very-unhealthy',
+          'hazardous',
+        );
+
         indicator.style.strokeDasharray =
           '102.62536001726656 153.93804002589985';
       } else if (polutantIndex <= 300) {
@@ -37,6 +69,13 @@ const renderPollutants = (app) => {
           '128.2817000215832 153.93804002589985';
       } else {
         svg.classList.add('hazardous');
+        svg.classList.remove(
+          'good',
+          'moderate',
+          'unhealthy-for-sensitive-groups',
+          'unhealthy',
+          'very-unhealthy',
+        );
         indicator.style.strokeDasharray =
           '153.93804002589985 153.93804002589985';
       }
