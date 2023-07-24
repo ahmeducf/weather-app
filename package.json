@@ -9,7 +9,8 @@
     "dev": "webpack serve --open --config webpack.config.dev.js",
     "prod": "webpack serve --open --config webpack.config.prod.js",
     "build:prod": "webpack --config webpack.config.prod.js",
-    "build:dev": "webpack --config webpack.config.dev.js"
+    "build:dev": "webpack --config webpack.config.dev.js",
+    "deploy:gh-pages": "git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",
