@@ -279,23 +279,21 @@ body.night .summary__current-conditions {
 .current-conditions__info {
   padding: 10px 16px;
   display: flex;
-  flex-direction: column;
-  position: relative;
 }
 
-.current-conditions__info > .temperature {
+.current-conditions__info > .left > .temperature {
   font-size: 6rem;
   margin-bottom: -16px;
 }
 
-.current-conditions__info > .icon {
-  position: absolute;
-  right: 260px;
-  top: 40px;
+.current-conditions__info > .right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.current-conditions__info > .description,
-.current-conditions__info > .high-low {
+.current-conditions__info > .left > .description,
+.current-conditions__info > .left > .high-low {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.1;
