@@ -29,6 +29,28 @@ Try the app deployed on github pages: [Weather App](https://ahmeducf.github.io/w
 - Eslint: To enforce code style
 - Prettier: To format code
 
+## Local Setup
+
+1. Clone the repo
+
+```bash
+git clone git@github.com:ahmeducf/weather-app.git
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. run webpack dev server in production mode
+
+```bash
+npm run build:prod
+```
+
+The app will be available at `http://localhost:8080/`
+
 ## Acknowledgement
 
 - [WeatherAPI](https://www.weatherapi.com/): To get the weather forecast of a city
