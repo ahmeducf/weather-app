@@ -18,6 +18,11 @@ import {
   getUserPosition,
 } from '../services';
 
+window.addEventListener('unhandledrejection', (e) => {
+  console.error(e);
+  pubsub.publish(FETCH_ERROR, e);
+});
+
 const fetchSuccess = (data) => {
   const app = App(data);
 
@@ -44,13 +49,18 @@ const subscribeToUnitChange = (app) => {
 
 const subscribeToMyLocationRequest = (app) => {
   pubsub.subscribe(USE_MY_LOCATION_REQUESTED, async () => {
-    pubsub.publish(SHOW_LOADING_COMPONENT);
+    getUserPosition()
+      .then((position) => {
+        pubsub.publish(SHOW_LOADING_COMPONENT);
 
-    const position = await getUserPosition();
-    const { latitude, longitude } = position.coords;
-    const query = `${latitude},${longitude}`;
+        const { latitude, longitude } = position.coords;
+        const query = `${latitude},${longitude}`;
 
-    fetchForecastData(query).then(fetchSuccess).catch(fetchError);
+        return query;
+      })
+      .then(fetchForecastData)
+      .then(fetchSuccess)
+      .catch(fetchError);
   });
 };
 
