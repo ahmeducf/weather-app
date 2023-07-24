@@ -260,6 +260,8 @@ body.night .summary__current-conditions {
 .current-conditions__header {
   padding: 10px 16px;
   background-color: rgba(0, 0, 0, 0.55);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .current-conditions__header__info {
