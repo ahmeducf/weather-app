@@ -18,13 +18,15 @@ import {
   getUserPosition,
 } from '../services';
 
+let app = null;
+
 window.addEventListener('unhandledrejection', (e) => {
   console.error(e);
   pubsub.publish(FETCH_ERROR, e);
 });
 
 const fetchSuccess = (data) => {
-  const app = App(data);
+  app = App(data);
 
   pubsub.publish(RENDER_CONTENT, app);
 
@@ -40,14 +42,14 @@ const fetchError = (error) => {
   console.error(error);
 };
 
-const subscribeToUnitChange = (app) => {
+const subscribeToUnitChange = () => {
   pubsub.subscribe(UNIT_CHANGE, (unit) => {
     app.setTemperatureFormat(unit);
     pubsub.publish(RENDER_CONTENT, app);
   });
 };
 
-const subscribeToMyLocationRequest = (app) => {
+const subscribeToMyLocationRequest = () => {
   pubsub.subscribe(USE_MY_LOCATION_REQUESTED, async () => {
     getUserPosition()
       .then((position) => {
@@ -64,7 +66,7 @@ const subscribeToMyLocationRequest = (app) => {
   });
 };
 
-const subscribeToSearchLocation = (app) => {
+const subscribeToSearchLocation = () => {
   pubsub.subscribe(SEARCH_LOCATION, async (query) => {
     pubsub.publish(SHOW_SEARCH_LOADING_COMPONENT);
 
@@ -76,7 +78,7 @@ const subscribeToSearchLocation = (app) => {
   });
 };
 
-const subscribeToFetchSelectedLocation = (app) => {
+const subscribeToFetchSelectedLocation = () => {
   pubsub.subscribe(FETCH_SELECTED_LOCATION, async (query) => {
     pubsub.publish(SHOW_LOADING_COMPONENT);
 
@@ -84,11 +86,11 @@ const subscribeToFetchSelectedLocation = (app) => {
   });
 };
 
-const subscribeToEvents = (app) => {
-  subscribeToUnitChange(app);
-  subscribeToMyLocationRequest(app);
-  subscribeToSearchLocation(app);
-  subscribeToFetchSelectedLocation(app);
+const subscribeToEvents = () => {
+  subscribeToUnitChange();
+  subscribeToMyLocationRequest();
+  subscribeToSearchLocation();
+  subscribeToFetchSelectedLocation();
 };
 
 const init = () => {
