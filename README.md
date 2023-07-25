@@ -7,11 +7,12 @@ I started this project to practice Asynchronous JavaScript and to learn how to u
 ## Features
 
 - Search for a city
-- Use geolocation to get the current weather forecast of the user's location
 - Auto suggest cities as the user types in the search bar
+- Showing loading spinner for the user while fetching data
+- Use geolocation to get the current weather forecast of the user's location
+- Change the look of the app based on the weather condition
 - Ability to switch between Celsius and Fahrenheit
 - Display hourly weather forecast
-- Showing loading spinner for the user while fetching data
 
 ## Demo
 
@@ -43,10 +44,10 @@ git clone git@github.com:ahmeducf/weather-app.git
 npm install
 ```
 
-3. run webpack dev server in production mode
+3. Run webpack dev server in production mode
 
 ```bash
-npm run build:prod
+npm run prod
 ```
 
 The app will be available at `http://localhost:8080/`
@@ -54,8 +55,8 @@ The app will be available at `http://localhost:8080/`
 ## Acknowledgement
 
 - [WeatherAPI](https://www.weatherapi.com/): To get the weather forecast of a city
-- [date-fns](https://date-fns.org/): To format dates
+- [date-fns](https://date-fns.org/): To manipulate dates
 
-## Roadmap
+## TODO
 
 - [ ] Make the app responsive for mobile devices
