@@ -3,6 +3,4 @@ const dataText =
 
 const data = JSON.parse(dataText);
 
-console.log(data);
-
 export default data;

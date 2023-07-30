@@ -1,4 +1,5 @@
 import APP from '../../models/index';
+import { CELSIUS } from '../../app/constants';
 import data from '../__mocks__/data';
 
 describe('APP', () => {
@@ -42,5 +43,10 @@ describe('APP', () => {
 
   it('should return an object with a method called setTemperatureFormat', () => {
     expect(app.setTemperatureFormat).toBeInstanceOf(Function);
+  });
+
+  it('should set the temperature format to celsius', () => {
+    app.setTemperatureFormat(CELSIUS);
+    expect(app.isCelsius()).toBe(true);
   });
 });
