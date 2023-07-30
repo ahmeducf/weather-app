@@ -18,12 +18,22 @@ describe('fetchAutoComplete', () => {
     });
 
     const result = await fetchAutoComplete('miami');
+    expect(result).toEqual(autoCompleteResult);
+  });
+
+  it('should call fetch with requestUrl', async () => {
+    fakeFetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve(autoCompleteResult),
+    });
+
+    await fetchAutoComplete('miami');
+
     expect(fakeFetch).toHaveBeenCalledTimes(1);
     expect(fakeFetch).toHaveBeenCalledWith(
       'https://api.weatherapi.com/v1/search.json?key=c33d409e23f845748e431828231507&q=miami',
       { mode: 'cors' },
     );
-    expect(result).toEqual(autoCompleteResult);
   });
 
   it('should throw an error if the response is not ok', async () => {
