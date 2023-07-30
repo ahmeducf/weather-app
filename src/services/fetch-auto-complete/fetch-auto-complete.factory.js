@@ -4,7 +4,7 @@
 const API_KEY = 'c33d409e23f845748e431828231507';
 const BASE_URL = 'https://api.weatherapi.com/v1/search.json';
 
-async function fetchAutoComplete(query) {
+const fetchAutoCompleteFactory = async (fetch, query) => {
   const requestUrl = `${BASE_URL}?key=${API_KEY}&q=${query}`;
 
   const response = await fetch(requestUrl, { mode: 'cors' });
@@ -20,6 +20,6 @@ async function fetchAutoComplete(query) {
   }
 
   return data;
-}
+};
 
-export default fetchAutoComplete;
+export default fetchAutoCompleteFactory;
