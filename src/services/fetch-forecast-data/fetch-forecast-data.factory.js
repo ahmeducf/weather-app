@@ -7,7 +7,7 @@ const DAYS = 1;
 const AQI = 'yes';
 const ALERTS = 'no';
 
-async function fetchForecastData(query) {
+const fetchForecastDataFactory = async (fetch, query) => {
   const requestUrl = `${BASE_URL}?key=${API_KEY}&q=${query}&days=${DAYS}&aqi=${AQI}&alerts=${ALERTS}`;
 
   const response = await fetch(requestUrl, { mode: 'cors' });
@@ -23,6 +23,6 @@ async function fetchForecastData(query) {
   }
 
   return data;
-}
+};
 
-export default fetchForecastData;
+export default fetchForecastDataFactory;
