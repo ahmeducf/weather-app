@@ -2,7 +2,7 @@ import AirQuality from '../../models/air-quality';
 import data from '../__mocks__/data';
 
 describe('AirQuality', () => {
-  const airQuality = AirQuality(data.current.air_quality);
+  const airQuality = AirQuality(data);
 
   it('should throw error if no data is provided', () => {
     expect(() => AirQuality()).toThrow(
@@ -11,25 +11,27 @@ describe('AirQuality', () => {
   });
 
   it('should return air quality index', () => {
-    expect(airQuality.getAirQualityIndex()).toBe(199);
+    expect(airQuality.getAirQualityIndex()).toBe(103);
   });
 
   it('should return air quality index text', () => {
-    expect(airQuality.getAirQualityIndexText()).toBe('Unhealthy');
+    expect(airQuality.getAirQualityIndexText()).toBe(
+      'Unhealthy for Sensitive Groups',
+    );
   });
 
   it('should return air quality index description', () => {
     expect(airQuality.getAirQualityIndexDescription()).toBe(
-      'Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects',
+      'Members of sensitive groups may experience health effects. The general public is not likely to be affected',
     );
   });
 
   it('should return co pollutant', () => {
-    expect(airQuality.getCO().getPollutant()).toBe(199);
+    expect(airQuality.getCO().getPollutant()).toBe(49);
   });
 
   it('should return co pollutant text', () => {
-    expect(airQuality.getCO().getPollutantText()).toBe('Unhealthy');
+    expect(airQuality.getCO().getPollutantText()).toBe('Good');
   });
 
   it('should return no2 pollutant', () => {

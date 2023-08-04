@@ -12,7 +12,8 @@ const APP = (data) => {
 
   const location = Location(data.location);
   const forecast = Forecast(data);
-  const airQuality = AirQuality(data.current.air_quality);
+
+  const airQuality = AirQuality(data);
   const dayParts = DayParts(data);
   const dayHours = DayHours(data);
   let TemperatureFormat = CELSIUS;

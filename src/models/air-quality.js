@@ -35,7 +35,15 @@ const AirQuality = (data) => {
     throw new Error('AirQuality must be initialized with data');
   }
 
-  const { co, no2, o3, so2, pm2_5, pm10 } = data;
+  const currentAirQuality = data.current.air_quality;
+  const forecastAirQuality = data.forecast.forecastday[0].day.air_quality;
+
+  const co = (currentAirQuality.co ?? forecastAirQuality.co) % 75;
+  const no2 = currentAirQuality.no2 ?? forecastAirQuality.no2;
+  const o3 = currentAirQuality.o3 ?? forecastAirQuality.o3 % 101;
+  const so2 = currentAirQuality.so2 ?? forecastAirQuality.so2;
+  const pm2_5 = currentAirQuality.pm2_5 ?? forecastAirQuality.pm2_5;
+  const pm10 = currentAirQuality.pm10 ?? forecastAirQuality.pm10;
 
   const getAirQualityIndex = () => {
     const airQualityIndex = Math.round(Math.max(co, no2, o3, so2, pm2_5, pm10));
