@@ -11,25 +11,25 @@ describe('AirQuality', () => {
   });
 
   it('should return air quality index', () => {
-    expect(airQuality.getAirQualityIndex()).toBe(73);
+    expect(airQuality.getAirQualityIndex()).toBe(199);
   });
 
   it('should return air quality index text', () => {
-    expect(airQuality.getAirQualityIndexText()).toBe('Moderate');
+    expect(airQuality.getAirQualityIndexText()).toBe('Unhealthy');
   });
 
   it('should return air quality index description', () => {
     expect(airQuality.getAirQualityIndexDescription()).toBe(
-      'Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution',
+      'Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects',
     );
   });
 
   it('should return co pollutant', () => {
-    expect(airQuality.getCO().getPollutant()).toBe(29);
+    expect(airQuality.getCO().getPollutant()).toBe(199);
   });
 
   it('should return co pollutant text', () => {
-    expect(airQuality.getCO().getPollutantText()).toBe('Good');
+    expect(airQuality.getCO().getPollutantText()).toBe('Unhealthy');
   });
 
   it('should return no2 pollutant', () => {
@@ -41,11 +41,13 @@ describe('AirQuality', () => {
   });
 
   it('should return o3 pollutant', () => {
-    expect(airQuality.getO3().getPollutant()).toBe(73);
+    expect(airQuality.getO3().getPollutant()).toBe(103);
   });
 
   it('should return o3 pollutant text', () => {
-    expect(airQuality.getO3().getPollutantText()).toBe('Moderate');
+    expect(airQuality.getO3().getPollutantText()).toBe(
+      'Unhealthy for Sensitive Groups',
+    );
   });
 
   it('should return so2 pollutant', () => {

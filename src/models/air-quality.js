@@ -35,10 +35,7 @@ const AirQuality = (data) => {
     throw new Error('AirQuality must be initialized with data');
   }
 
-  const { no2, so2, pm2_5, pm10 } = data;
-  let { co, o3 } = data;
-  co -= 170;
-  o3 -= 30;
+  const { co, no2, o3, so2, pm2_5, pm10 } = data;
 
   const getAirQualityIndex = () => {
     const airQualityIndex = Math.round(Math.max(co, no2, o3, so2, pm2_5, pm10));
