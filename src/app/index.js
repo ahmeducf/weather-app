@@ -25,14 +25,15 @@ window.addEventListener('unhandledrejection', (e) => {
   pubsub.publish(FETCH_ERROR, e);
 });
 
-const fetchSuccess = (data) => {
+const fetchSuccess = async (data) => {
   app = App(data);
 
-  pubsub.publish(RENDER_CONTENT, app);
+  await new Promise((resolve) => {
+    pubsub.publish(RENDER_CONTENT, app);
+    resolve();
+  });
 
-  setTimeout(() => {
-    pubsub.publish(HIDE_LOADING_COMPONENT);
-  }, 300);
+  pubsub.publish(HIDE_LOADING_COMPONENT);
 
   return app;
 };
