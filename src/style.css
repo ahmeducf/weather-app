@@ -32,6 +32,15 @@ html {
   vertical-align: baseline;
 }
 
+*:focus {
+  outline: 5px auto #000 !important;
+}
+
+.search-box > input[type='text']:focus,
+.search-box > button:focus {
+  outline: 5px auto #fff !important;
+}
+
 ul,
 li {
   list-style: none;
@@ -162,6 +171,11 @@ header > .search-box {
   top: 2.5px;
   width: 24px;
   height: 24px;
+}
+
+.my-location > img {
+  width: 100%;
+  height: 100%;
 }
 
 /* Header Unit Switcher */
@@ -799,7 +813,8 @@ body.loading {
   border-top: none;
 }
 
-.search-results .results-list .results-list-item:hover {
+.search-results .results-list .results-list-item:hover,
+.search-results .results-list .results-list-item:focus {
   background-color: #1b4de4 !important;
   color: #fff;
 }

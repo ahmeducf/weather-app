@@ -64,19 +64,28 @@ const showSearchResults = (results) => {
       const li = document.createElement('li');
       li.classList.add('results-list-item');
       li.dataset.query = result.url;
+      li.setAttribute('tabindex', '0');
 
       li.textContent = `${name}, ${region}, ${country}`;
 
       resultsList.appendChild(li);
 
-      li.addEventListener('click', (e) => {
-        const { query } = e.target.dataset;
-        pubsub.publish(FETCH_SELECTED_LOCATION, query);
+      ['click', 'keydown'].forEach((event) => {
+        li.addEventListener(event, (e) => {
+          if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') {
+            return;
+          }
+          const { query } = li.dataset;
 
-        searchResults.classList.add('hidden');
+          pubsub.publish(FETCH_SELECTED_LOCATION, query);
 
-        const searchInput = document.querySelector('header .search-box input');
-        searchInput.value = '';
+          searchResults.classList.add('hidden');
+
+          const searchInput = document.querySelector(
+            'header .search-box input',
+          );
+          searchInput.value = '';
+        });
       });
     });
   }
