@@ -9,18 +9,34 @@
   <body>
     <header>
       <div class="logo">
-        <a href="/" target="_self"><h1>Weather App</h1></a>
+        <a href="/" target="_self" aria-label="Weather App Home Page"
+          ><h1>Weather App</h1></a
+        >
       </div>
       <div class="search-box">
         <input
           type="text"
           placeholder="Search City or Zip Code"
           title="Search City or Zip Code"
+          aria-label="Search City or Zip Code"
+          aria-autocomplete="list"
+          aria-controls="search-results"
         />
-        <button class="my-location" title="My Location">
+        <button
+          class="my-location"
+          title="My Location"
+          aria-label="My location"
+        >
           <img src="./assets/my_location.svg" alt="my location" />
         </button>
-        <div class="search-results hidden">
+        <div
+          class="search-results hidden"
+          id="search-results"
+          role="listbox"
+          aria-label="Search Results"
+          aria-expanded="false"
+          aria-hidden="true"
+        >
           <div class="loader-container hidden">
             <span class="loader"></span>
           </div>
@@ -29,8 +45,22 @@
         </div>
       </div>
       <div class="unit-switcher">
-        <button class="celsius active" title="Celsius">°C</button>
-        <button class="fahrenheit" title="Fahrenheit">°F</button>
+        <button
+          class="celsius active"
+          title="Celsius"
+          aria-label="Celsius"
+          aria-pressed="true"
+        >
+          °C
+        </button>
+        <button
+          class="fahrenheit"
+          title="Fahrenheit"
+          aria-label="Fahrenheit"
+          aria-pressed="false"
+        >
+          °F
+        </button>
       </div>
     </header>
 

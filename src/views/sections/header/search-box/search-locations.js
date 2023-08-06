@@ -6,6 +6,7 @@ import {
 
 const handleSearch = (app) => {
   const searchInput = document.querySelector('header .search-box input');
+  const searchResults = document.querySelector('.search-box .search-results');
 
   searchInput.addEventListener('keyup', (e) => {
     const query = e.target.value;
@@ -13,6 +14,9 @@ const handleSearch = (app) => {
     if (query) {
       pubsub.publish(SEARCH_LOCATION, query);
     }
+
+    searchResults.setAttribute('aria-hidden', 'false');
+    searchResults.setAttribute('aria-expanded', 'true');
   });
 };
 
@@ -65,6 +69,7 @@ const showSearchResults = (results) => {
       li.classList.add('results-list-item');
       li.dataset.query = result.url;
       li.setAttribute('tabindex', '0');
+      li.setAttribute('role', 'button');
 
       li.textContent = `${name}, ${region}, ${country}`;
 
@@ -85,6 +90,9 @@ const showSearchResults = (results) => {
             'header .search-box input',
           );
           searchInput.value = '';
+
+          searchResults.setAttribute('aria-hidden', 'true');
+          searchResults.setAttribute('aria-expanded', 'false');
         });
       });
     });
