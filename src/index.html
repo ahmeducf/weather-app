@@ -105,8 +105,12 @@
           aria-label="Air Quality Index"
         >
           <h2 class="air-quality-index__header">Air Quality Index</h2>
-          <div class="air-quality-index__severity">
-            <div class="severity__donut-chart">
+          <div
+            class="air-quality-index__severity"
+            title="Severity"
+            aria-labelledby="severity-label severity-title severity-descritption"
+          >
+            <div class="severity__donut-chart" aria-hidden="true">
               <svg width="60" height="60" class="donut-chart">
                 <circle
                   r="27.5"
@@ -130,12 +134,13 @@
                   alignment-baseline="middle"
                   text-anchor="middle"
                   class="donut-chart-inner-value"
+                  id="severity-label"
                 ></text>
               </svg>
             </div>
-            <div class="severity__text">
-              <span class="title"></span>
-              <span class="description"> </span>
+            <div class="severity__text" aria-hidden="true">
+              <span id="severity-title" class="title"></span>
+              <span id="severity-descritption" class="description"> </span>
             </div>
           </div>
         </section>
