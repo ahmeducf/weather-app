@@ -7,7 +7,7 @@
     <title>Weather App</title>
   </head>
   <body>
-    <header>
+    <header aria-label="Weather App Header">
       <div class="logo">
         <a href="/" target="_self" aria-label="Weather App Home Page"
           ><h1>Weather App</h1></a
@@ -64,9 +64,12 @@
       </div>
     </header>
 
-    <main class="content">
-      <section class="summary">
-        <section class="summary__current-conditions">
+    <main class="content" aria-label="Weather App Content">
+      <section class="summary" aria-label="Forecast Summary">
+        <section
+          class="summary__current-conditions"
+          aria-label="Current Conditions"
+        >
           <div class="current-conditions__header">
             <h2 class="current-conditions__header__info">
               <strong class="location"></strong>
@@ -97,7 +100,10 @@
             </div>
           </div>
         </section>
-        <section class="summary__air-quality-index">
+        <section
+          class="summary__air-quality-index"
+          aria-label="Air Quality Index"
+        >
           <h2 class="air-quality-index__header">Air Quality Index</h2>
           <div class="air-quality-index__severity">
             <div class="severity__donut-chart">
@@ -134,7 +140,7 @@
           </div>
         </section>
       </section>
-      <section class="today-forecast">
+      <section class="today-forecast" aria-label="Today's Forecast in Brief">
         <h2 class="today-forecast__header">
           <div class="today-forecast__header__info">
             <span>Today's Forecast for</span>
@@ -252,7 +258,10 @@
           </li>
         </ul>
       </section>
-      <section class="today-details">
+      <section
+        class="today-details"
+        aria-label="Today's Forecast in More Details"
+      >
         <h2 class="today-details__header">
           <div class="today-details__header__info">
             <span>Weather Today in</span>
@@ -468,7 +477,7 @@
           </li>
         </ul>
       </section>
-      <section class="hourly-forecast">
+      <section class="hourly-forecast" aria-label="Hourly Forecast">
         <h2 class="hourly-forecast__header">Hourly Forecast</h2>
         <div class="slider-container">
           <button class="prev disabled">&#10094;</button>
@@ -476,7 +485,7 @@
           <ul class="hourly-forecast__forecast-list"></ul>
         </div>
       </section>
-      <section class="pollutants">
+      <section class="pollutants" aria-label="Pollutants Report">
         <h2 class="pollutants__header">Pollutants</h2>
         <ul class="pollutants__list">
           <li class="pollutants__list__item" data-pollutant="co">
@@ -679,7 +688,7 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" aria-label="Footer">
       Powered by
       <a
         href="https://www.weatherapi.com/"
