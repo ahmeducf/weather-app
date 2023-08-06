@@ -13,6 +13,7 @@ I started this project to practice Asynchronous JavaScript and to learn how to u
 - Change the look of the app based on the weather condition
 - Ability to switch between Celsius and Fahrenheit
 - Display hourly weather forecast
+- Support for keyboard navigation
 
 ## Demo
 
@@ -60,3 +61,5 @@ The app will be available at `http://localhost:8080/`
 ## TODO
 
 - [ ] Make the app responsive for mobile devices
+- [x] Add unit tests
+- [ ] Improve accessibility
