@@ -355,6 +355,11 @@ svg.donut-chart {
   border-radius: 50%;
 }
 
+.pollutants__list__item svg.donut-chart {
+  min-width: 54px;
+  min-height: 54px;
+}
+
 svg.donut-chart circle.donut-chart-track {
   fill: transparent;
   stroke: #e7ecf1;
@@ -914,5 +919,50 @@ body.loading {
 
   .hourly-forecast__forecast-list .forecast-list__list-item {
     border-bottom: none;
+  }
+}
+
+@media (max-width: 500px) {
+  main section.summary,
+  main section.today-details,
+  main section.today-forecast,
+  main section.hourly-forecast,
+  main section.pollutants {
+    width: 90%;
+  }
+
+  body > header {
+    padding: 16px 12px;
+  }
+
+  header > .logo,
+  header > .unit-switcher {
+    width: auto;
+  }
+
+  body > header .logo > a {
+    font-size: 1rem;
+  }
+
+  body > header .unit-switcher > button {
+    padding: 3px 10px;
+  }
+
+  .current-conditions__info > .left > .temperature {
+    font-size: 4rem;
+  }
+
+  .current-conditions__info > .left > .description,
+  .current-conditions__info > .left > .high-low {
+    font-size: 1rem;
+  }
+
+  .search-box > input[type='text'] {
+    padding: 5px 24px;
+    width: 100%;
+  }
+
+  .search-box > input[type='text']::placeholder {
+    font-size: 0.8rem;
   }
 }
