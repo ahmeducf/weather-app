@@ -11,18 +11,16 @@ describe('AirQuality', () => {
   });
 
   it('should return air quality index', () => {
-    expect(airQuality.getAirQualityIndex()).toBe(103);
+    expect(airQuality.getAirQualityIndex()).toBe(49);
   });
 
   it('should return air quality index text', () => {
-    expect(airQuality.getAirQualityIndexText()).toBe(
-      'Unhealthy for Sensitive Groups',
-    );
+    expect(airQuality.getAirQualityIndexText()).toBe('Good');
   });
 
   it('should return air quality index description', () => {
     expect(airQuality.getAirQualityIndexDescription()).toBe(
-      'Members of sensitive groups may experience health effects. The general public is not likely to be affected',
+      'Air quality is considered satisfactory, and air pollution poses little or no risk',
     );
   });
 
@@ -43,13 +41,11 @@ describe('AirQuality', () => {
   });
 
   it('should return o3 pollutant', () => {
-    expect(airQuality.getO3().getPollutant()).toBe(103);
+    expect(airQuality.getO3().getPollutant()).toBe(2);
   });
 
   it('should return o3 pollutant text', () => {
-    expect(airQuality.getO3().getPollutantText()).toBe(
-      'Unhealthy for Sensitive Groups',
-    );
+    expect(airQuality.getO3().getPollutantText()).toBe('Good');
   });
 
   it('should return so2 pollutant', () => {

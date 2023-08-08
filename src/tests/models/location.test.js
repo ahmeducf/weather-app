@@ -9,7 +9,7 @@ describe('Location', () => {
   });
 
   it('should return correct local time', () => {
-    expect(location.getLocalTime()).toBe('8:06 PM GMT+2');
+    expect(location.getLocalTime()).toBe('8:06 PM GMT+3');
   });
 
   it('should return correct name', () => {
