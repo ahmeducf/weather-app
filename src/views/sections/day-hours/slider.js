@@ -8,6 +8,11 @@ const handleSliderChange = (app) => {
   const shownHours = document.querySelectorAll(
     '.slider-container .slide:not(.hidden)',
   );
+  prevButton.classList.add('disabled');
+  prevButton.classList.remove('hidden');
+  nextButton.classList.remove('disabled');
+  nextButton.setAttribute('aria-disabled', 'false');
+  nextButton.classList.remove('hidden');
 
   if (currentHourIndex > 20) {
     prevButton.classList.add('hidden');
