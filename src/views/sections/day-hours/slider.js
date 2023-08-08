@@ -1,5 +1,6 @@
 /* eslint-disable no-shadow */
 const handleSliderChange = (app) => {
+  const isWideScreen = window.innerWidth > 720;
   const dayHours = app.getDayHours();
   const currentHourIndex = dayHours.getCurrent().getHourIndexInSortedArray();
 
@@ -14,17 +15,12 @@ const handleSliderChange = (app) => {
   nextButton.setAttribute('aria-disabled', 'false');
   nextButton.classList.remove('hidden');
 
-  if (currentHourIndex > 20) {
+  if (isWideScreen && currentHourIndex > 20) {
     prevButton.classList.add('hidden');
     nextButton.classList.add('hidden');
   }
 
   const lastShownHour = shownHours[shownHours.length - 1];
-  const nextHour = lastShownHour.nextElementSibling;
-  if (!nextHour) {
-    nextButton.classList.add('disabled');
-    nextButton.setAttribute('aria-disabled', 'true');
-  }
 
   lastShownHour.style.borderRight = 'none';
   window.addEventListener('resize', () => {
@@ -34,6 +30,14 @@ const handleSliderChange = (app) => {
     const lastShownHour = shownHours[shownHours.length - 1];
 
     lastShownHour.style.borderRight = 'none';
+
+    if (window.innerWidth > 720 && currentHourIndex > 20) {
+      prevButton.classList.add('hidden');
+      nextButton.classList.add('hidden');
+    } else if (window.innerWidth <= 720 && currentHourIndex > 20) {
+      prevButton.classList.remove('hidden');
+      nextButton.classList.remove('hidden');
+    }
   });
 
   const showNextHours = () => {

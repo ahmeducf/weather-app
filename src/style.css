@@ -857,6 +857,10 @@ body.loading {
     min-height: 200px;
   }
 
+  .today-details__info {
+    padding: 0;
+  }
+
   .today-details__info-list {
     grid-template-columns: repeat(1, 1fr);
     grid-auto-flow: row;
@@ -964,5 +968,17 @@ body.loading {
 
   .search-box > input[type='text']::placeholder {
     font-size: 0.8rem;
+  }
+
+  * {
+    user-select: none;
+    --webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  *:focus {
+    outline: none !important;
+    border: none !important;
   }
 }

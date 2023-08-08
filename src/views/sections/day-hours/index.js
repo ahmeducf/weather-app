@@ -3,23 +3,24 @@ import handleSliderChange from './slider';
 
 const renderSliderItems = (app) => {
   let isWideScreen = window.innerWidth > 720;
-  const dayHours = app.getDayHours();
-  const hours = dayHours.getHours();
-
-  const currentHourIndex = dayHours.getCurrent().getHourIndexInSortedArray();
-
-  let startIndex = currentHourIndex;
-  if (currentHourIndex > 20) {
-    startIndex = currentHourIndex - (currentHourIndex % 4);
-  }
-
-  let indexCounter = startIndex;
 
   const dayHoursList = document.querySelector(
     '.hourly-forecast__forecast-list',
   );
 
   const renderHours = () => {
+    const dayHours = app.getDayHours();
+    const hours = dayHours.getHours();
+
+    const currentHourIndex = dayHours.getCurrent().getHourIndexInSortedArray();
+
+    let startIndex = currentHourIndex;
+    if (currentHourIndex > 20) {
+      startIndex = currentHourIndex - (currentHourIndex % 4);
+    }
+
+    let indexCounter = startIndex;
+
     dayHoursList.innerHTML = '';
     let remainingHours = [];
 
@@ -36,14 +37,13 @@ const renderSliderItems = (app) => {
         dayHoursList.appendChild(hourComponent);
       });
 
-      remainingHours = hours.slice(currentHourIndex + 4, hours.length);
+      remainingHours = hours.slice(currentHourIndex + 4);
     } else {
-      const hourComponent = DayHour(app, hours[startIndex], indexCounter);
+      const hourComponent = DayHour(app, hours[currentHourIndex], indexCounter);
       indexCounter += 1;
 
       dayHoursList.appendChild(hourComponent);
-
-      remainingHours = hours.slice(currentHourIndex + 1, hours.length);
+      remainingHours = hours.slice(currentHourIndex + 1);
     }
 
     remainingHours.forEach((hour) => {
@@ -53,6 +53,8 @@ const renderSliderItems = (app) => {
 
       dayHoursList.appendChild(hourComponent);
     });
+
+    handleSliderChange(app);
   };
 
   renderHours();
@@ -70,7 +72,6 @@ const renderSliderItems = (app) => {
 
 const renderDayHours = (app) => {
   renderSliderItems(app);
-  handleSliderChange(app);
 };
 
 export default renderDayHours;
