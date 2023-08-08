@@ -818,3 +818,101 @@ body.loading {
   background-color: #1b4de4 !important;
   color: #fff;
 }
+
+/* Media Queries */
+
+@media (max-width: 1024px) {
+  body > header {
+    padding: 16px 24px;
+  }
+
+  body > header .logo > a {
+    font-size: 20px;
+    min-width: auto;
+  }
+
+  body > header .search-box > input[type='text'] {
+    max-width: 260px;
+  }
+
+  body > header .unit-switcher > button {
+    padding: 3px 12px;
+  }
+
+  section.summary {
+    flex-direction: column;
+  }
+
+  .current-conditions__info > .left > .description,
+  .current-conditions__info > .left > .high-low {
+    font-size: 1.44rem;
+  }
+
+  .summary__air-quality-index {
+    min-height: 200px;
+  }
+
+  .today-details__info-list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-flow: row;
+  }
+
+  .info-list__list-item {
+    padding: 10px 0;
+  }
+
+  .info-list__list-item:first-of-type {
+    border-top: none;
+  }
+
+  .pollutants__list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-flow: row;
+    padding: 16px 0;
+  }
+
+  .pollutants__list__item:nth-child(5) {
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 24px;
+  }
+
+  main section.summary,
+  main section.today-details,
+  main section.today-forecast,
+  main section.hourly-forecast,
+  main section.pollutants {
+    width: 80%;
+  }
+
+  .footer {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 720px) {
+  .today-forecast__forecast-list,
+  .hourly-forecast__forecast-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .forecast-list__list-item {
+    border-right: none !important;
+    border-bottom: 1px solid #dedede;
+    border-image: none;
+    padding: 24px;
+    margin: 0 40px;
+  }
+
+  .forecast-list__list-item:last-of-type {
+    border-bottom: none;
+  }
+
+  .forecast-list__list-item .time,
+  .forecast-list__list-item .chance-of-rain {
+    font-size: 1.5rem;
+  }
+
+  .hourly-forecast__forecast-list .forecast-list__list-item {
+    border-bottom: none;
+  }
+}

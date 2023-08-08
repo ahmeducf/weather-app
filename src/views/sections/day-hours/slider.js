@@ -22,6 +22,14 @@ const handleSliderChange = (app) => {
   }
 
   lastShownHour.style.borderRight = 'none';
+  window.addEventListener('resize', () => {
+    const shownHours = document.querySelectorAll(
+      '.slider-container .slide:not(.hidden)',
+    );
+    const lastShownHour = shownHours[shownHours.length - 1];
+
+    lastShownHour.style.borderRight = 'none';
+  });
 
   const showNextHours = () => {
     const shownHours = document.querySelectorAll(
@@ -58,7 +66,9 @@ const handleSliderChange = (app) => {
 
       shownHours[shownHours.length - 1].classList.add('hidden');
       shownHours[shownHours.length - 1].style.borderRight = '1px solid #dedede';
-      shownHours[shownHours.length - 2].style.borderRight = 'none';
+      if (shownHours.length > 1) {
+        shownHours[shownHours.length - 2].style.borderRight = 'none';
+      }
 
       if (!prevHour.previousElementSibling) {
         prevButton.classList.add('disabled');
