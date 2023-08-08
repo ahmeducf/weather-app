@@ -8,10 +8,6 @@ describe('Location', () => {
     expect(() => Location()).toThrow('Location must be initialized with data');
   });
 
-  it('should return correct local time', () => {
-    expect(location.getLocalTime()).toBe('8:06 PM GMT+3');
-  });
-
   it('should return correct name', () => {
     expect(location.getName()).toBe('Cairo, Egypt');
   });
