@@ -18,6 +18,9 @@ const handleSliderChange = (app) => {
   if (isWideScreen && currentHourIndex > 20) {
     prevButton.classList.add('hidden');
     nextButton.classList.add('hidden');
+  } else if (!isWideScreen && currentHourIndex === 23) {
+    prevButton.classList.add('hidden');
+    nextButton.classList.add('hidden');
   }
 
   const lastShownHour = shownHours[shownHours.length - 1];
@@ -27,6 +30,9 @@ const handleSliderChange = (app) => {
     const shownHours = document.querySelectorAll(
       '.slider-container .slide:not(.hidden)',
     );
+    const prevButton = document.querySelector('.slider-container .prev');
+    const nextButton = document.querySelector('.slider-container .next');
+
     const lastShownHour = shownHours[shownHours.length - 1];
 
     lastShownHour.style.borderRight = 'none';
@@ -44,6 +50,9 @@ const handleSliderChange = (app) => {
     const shownHours = document.querySelectorAll(
       '.slider-container .slide:not(.hidden)',
     );
+    const prevButton = document.querySelector('.slider-container .prev');
+    const nextButton = document.querySelector('.slider-container .next');
+
     const lastShownHour = shownHours[shownHours.length - 1];
     const nextHour = lastShownHour.nextElementSibling;
 
@@ -65,6 +74,8 @@ const handleSliderChange = (app) => {
   };
 
   const showPrevHours = () => {
+    const prevButton = document.querySelector('.slider-container .prev');
+    const nextButton = document.querySelector('.slider-container .next');
     const shownHours = document.querySelectorAll(
       '.slider-container .slide:not(.hidden)',
     );
@@ -89,8 +100,14 @@ const handleSliderChange = (app) => {
     }
   };
 
-  nextButton.addEventListener('click', showNextHours);
-  prevButton.addEventListener('click', showPrevHours);
+  const newNextButton = nextButton.cloneNode(true);
+  const newPrevButton = prevButton.cloneNode(true);
+
+  nextButton.parentNode.replaceChild(newNextButton, nextButton);
+  prevButton.parentNode.replaceChild(newPrevButton, prevButton);
+
+  newNextButton.addEventListener('click', showNextHours);
+  newPrevButton.addEventListener('click', showPrevHours);
 };
 
 export default handleSliderChange;

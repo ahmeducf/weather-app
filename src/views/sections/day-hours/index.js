@@ -4,11 +4,11 @@ import handleSliderChange from './slider';
 const renderSliderItems = (app) => {
   let isWideScreen = window.innerWidth > 720;
 
-  const dayHoursList = document.querySelector(
-    '.hourly-forecast__forecast-list',
-  );
-
   const renderHours = () => {
+    const dayHoursList = document.querySelector(
+      '.hourly-forecast__forecast-list',
+    );
+
     const dayHours = app.getDayHours();
     const hours = dayHours.getHours();
 
@@ -56,7 +56,6 @@ const renderSliderItems = (app) => {
 
     handleSliderChange(app);
   };
-
   renderHours();
 
   window.addEventListener('resize', () => {
