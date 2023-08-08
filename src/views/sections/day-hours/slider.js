@@ -18,6 +18,7 @@ const handleSliderChange = (app) => {
   const nextHour = lastShownHour.nextElementSibling;
   if (!nextHour) {
     nextButton.classList.add('disabled');
+    nextButton.setAttribute('aria-disabled', 'true');
   }
 
   lastShownHour.style.borderRight = 'none';
@@ -38,9 +39,11 @@ const handleSliderChange = (app) => {
 
       if (!nextHour.nextElementSibling) {
         nextButton.classList.add('disabled');
+        nextButton.setAttribute('aria-disabled', 'true');
       }
 
       prevButton.classList.remove('disabled');
+      prevButton.setAttribute('aria-disabled', 'false');
     }
   };
 
@@ -59,9 +62,11 @@ const handleSliderChange = (app) => {
 
       if (!prevHour.previousElementSibling) {
         prevButton.classList.add('disabled');
+        prevButton.setAttribute('aria-disabled', 'true');
       }
 
       nextButton.classList.remove('disabled');
+      nextButton.setAttribute('aria-disabled', 'false');
     }
   };
 

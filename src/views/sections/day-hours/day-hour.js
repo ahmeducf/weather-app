@@ -10,6 +10,7 @@ const DayHour = (app, hour, index) => {
   const timeDiv = document.createElement('div');
   timeDiv.classList.add('time');
   timeDiv.textContent = hour.isCurrent() ? 'Now' : hour.getTime();
+  timeDiv.setAttribute('title', 'Time');
 
   const tempDiv = document.createElement('div');
   tempDiv.classList.add('temperature');
@@ -18,6 +19,7 @@ const DayHour = (app, hour, index) => {
   tempSpan.textContent = app.isCelsius()
     ? `${hour.getCelsiusTemperature()}°C`
     : `${hour.getFahrenheitTemperature()}°F`;
+  tempDiv.setAttribute('title', 'Temperature');
 
   const iconDiv = document.createElement('div');
   iconDiv.classList.add('icon');
@@ -25,6 +27,7 @@ const DayHour = (app, hour, index) => {
   const iconImg = document.createElement('img');
   iconImg.setAttribute('src', hour.getConditionIcon());
   iconImg.setAttribute('alt', hour.getConditionText());
+  iconDiv.setAttribute('aria-hidden', 'true');
 
   const chanceOfRainDiv = document.createElement('div');
   chanceOfRainDiv.classList.add('chance-of-rain');
@@ -35,6 +38,7 @@ const DayHour = (app, hour, index) => {
                 <title>Rain</title>
                 <path d="M4.7329.0217c-.1848-.059-.3855.0064-.4803.148L.2731 5.1191c-.0814.0922-.1501.1961-.196.3108-.2469.6009.1185 1.2697.8156 1.4943.6914.226 1.447-.0712 1.7-.6585L4.9662.4987l.0111-.0282c.073-.1807-.036-.379-.2444-.4488z"></path>
               </svg>`;
+  chanceOfRainDiv.setAttribute('title', 'Chance of rain');
 
   tempDiv.appendChild(tempSpan);
   iconDiv.appendChild(iconImg);

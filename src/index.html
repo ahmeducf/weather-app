@@ -152,25 +152,33 @@
             <span class="location"></span>
           </div>
         </h2>
-        <ul class="today-forecast__forecast-list">
-          <li class="forecast-list__list-item" data-part="morning">
-            <div class="time">Morning</div>
-            <div class="temperature">
+        <ul
+          class="today-forecast__forecast-list"
+          aria-label="Day Parts' Forecast List"
+        >
+          <li
+            class="forecast-list__list-item"
+            data-part="morning"
+            aria-labelledby="time-morning"
+          >
+            <div id="time-morning" class="time" aria-hidden="true">Morning</div>
+            <div class="temperature" title="Temperature">
               <span class="temp"></span>
             </div>
-            <div class="icon" title="clear night">
+            <div class="icon" title="clear night" aria-hidden="true">
               <img
                 src="//cdn.weatherapi.com/weather/128x128/night/113.png"
                 alt="clear sky"
               />
             </div>
-            <div class="chance-of-rain">
+            <div class="chance-of-rain" title="Chance of Rain">
               <svg
                 name="precip-rain-single"
                 theme="full"
                 viewBox="0 -2 5 10"
                 width="7.5px"
                 fill="#6adef8"
+                aria-hidden="true"
               >
                 <title>Rain</title>
                 <path
@@ -180,24 +188,31 @@
               <div class="percentage"></div>
             </div>
           </li>
-          <li class="forecast-list__list-item" data-part="afternoon">
-            <div class="time">Afternoon</div>
-            <div class="temperature">
+          <li
+            class="forecast-list__list-item"
+            data-part="afternoon"
+            aria-labelledby="time-afternoon"
+          >
+            <div id="time-afternoon" class="time" aria-hidden="true">
+              Afternoon
+            </div>
+            <div class="temperature" title="Temperature">
               <span class="temp"></span>
             </div>
-            <div class="icon" title="clear night">
+            <div class="icon" title="clear night" aria-hidden="true">
               <img
                 src="//cdn.weatherapi.com/weather/128x128/night/113.png"
                 alt="clear sky"
               />
             </div>
-            <div class="chance-of-rain">
+            <div class="chance-of-rain" title="Chance of Rain">
               <svg
                 name="precip-rain-single"
                 theme="full"
                 viewBox="0 -2 5 10"
                 width="7.5px"
                 fill="#6adef8"
+                aria-hidden="true"
               >
                 <title>Rain</title>
                 <path
@@ -207,24 +222,29 @@
               <div class="percentage"></div>
             </div>
           </li>
-          <li class="forecast-list__list-item" data-part="evening">
-            <div class="time">Evening</div>
-            <div class="temperature">
+          <li
+            class="forecast-list__list-item"
+            data-part="evening"
+            aria-labelledby="time-evening"
+          >
+            <div id="time-evening" class="time" aria-hidden="true">Evening</div>
+            <div class="temperature" title="Temperature">
               <span class="temp"></span>
             </div>
-            <div class="icon" title="clear night">
+            <div class="icon" title="clear night" aria-hidden="true">
               <img
                 src="//cdn.weatherapi.com/weather/128x128/night/113.png"
                 alt="clear sky"
               />
             </div>
-            <div class="chance-of-rain">
+            <div class="chance-of-rain" title="Chance of Rain">
               <svg
                 name="precip-rain-single"
                 theme="full"
                 viewBox="0 -2 5 10"
                 width="7.5px"
                 fill="#6adef8"
+                aria-hidden="true"
               >
                 <title>Rain</title>
                 <path
@@ -234,24 +254,31 @@
               <div class="percentage"></div>
             </div>
           </li>
-          <li class="forecast-list__list-item" data-part="overnight">
-            <div class="time">Overnight</div>
-            <div class="temperature">
+          <li
+            class="forecast-list__list-item"
+            data-part="overnight"
+            aria-labelledby="time-overnight"
+          >
+            <div id="time-overnight" class="time" aria-hidden="true">
+              Overnight
+            </div>
+            <div class="temperature" title="Temperature">
               <span class="temp"></span>
             </div>
-            <div class="icon" title="clear night">
+            <div class="icon" title="clear night" aria-hidden="true">
               <img
                 src="//cdn.weatherapi.com/weather/128x128/night/113.png"
                 alt="clear sky"
               />
             </div>
-            <div class="chance-of-rain">
+            <div class="chance-of-rain" title="Chance of Rain">
               <svg
                 name="precip-rain-single"
                 theme="full"
                 viewBox="0 -2 5 10"
                 width="7.5px"
                 fill="#6adef8"
+                aria-hidden="true"
               >
                 <title>Rain</title>
                 <path
@@ -274,14 +301,14 @@
           </div>
         </h2>
         <div class="today-details__info">
-          <div class="feels-like">
+          <div class="feels-like" title="Feels Like">
             <div class="temperature">
               <span class="temp"></span>
             </div>
-            <div class="description">Feels Like</div>
+            <div class="description" aria-hidden="true">Feels Like</div>
           </div>
-          <div class="sunrise-sunset">
-            <div class="sunrise">
+          <div class="sunrise-sunset" title="Sunrise/Sunset">
+            <div class="sunrise" aria-label="Sunrise">
               <svg
                 width="24px"
                 height="24px"
@@ -289,6 +316,7 @@
                 name="sunrise-line"
                 theme=""
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <title>Sun Rise</title>
                 <path
@@ -297,7 +325,7 @@
               </svg>
               <span class="time">5:30 am</span>
             </div>
-            <div class="sunset">
+            <div class="sunset" aria-label="Sunset">
               <svg
                 width="24px"
                 height="24px"
@@ -305,6 +333,7 @@
                 name="sunset-line"
                 theme=""
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <title>Sunset</title>
                 <path
@@ -315,7 +344,10 @@
             </div>
           </div>
         </div>
-        <ul class="today-details__info-list">
+        <ul
+          class="today-details__info-list"
+          aria-label="Today's Forecast Details"
+        >
           <li class="info-list__list-item" data-info="high-low">
             <svg
               width="24px"
@@ -325,6 +357,7 @@
               name="temp"
               theme="dark"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <title>Temperature</title>
               <path
@@ -347,6 +380,7 @@
               name="humidity"
               theme="dark"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <title>Humidity</title>
               <path
@@ -366,6 +400,7 @@
               name="pressure"
               theme="dark"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <title>Barometric Pressure</title>
               <path
@@ -384,6 +419,7 @@
               name="visibility"
               theme="dark"
               viewBox="0 0 1024 1024"
+              aria-hidden="true"
             >
               <title>Visibility</title>
               <path
@@ -405,6 +441,7 @@
               name="wind"
               theme="dark"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <title>Wind</title>
               <path
@@ -413,6 +450,7 @@
                 stroke="currentColor"
                 stroke-linecap="round"
                 fill="none"
+                aria-hidden="true"
               ></path>
             </svg>
             <span class="label">Wind</span>
@@ -427,6 +465,7 @@
               name="dewpoint"
               theme="dark"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <title>Dew Point</title>
               <path
@@ -449,6 +488,7 @@
               name="uv"
               theme="dark"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <title>UV Level</title>
               <path
@@ -471,6 +511,7 @@
               color="#2b2b2b"
               fill="#2b2b2b"
               viewBox="0 0 996 1024"
+              aria-hidden="true"
             >
               <title>Moon Phase - Day 0</title>
               <path
@@ -484,9 +525,29 @@
       </section>
       <section class="hourly-forecast" aria-label="Hourly Forecast">
         <h2 class="hourly-forecast__header">Hourly Forecast</h2>
-        <div class="slider-container">
-          <button class="prev disabled">&#10094;</button>
-          <button class="next">&#10095;</button>
+        <div
+          id="hourly-forecast-slider"
+          class="slider-container"
+          aria-label="Hourly Forecast Slider"
+        >
+          <button
+            class="prev disabled"
+            title="Previous Hour"
+            aria-label="Previous Hour"
+            aria-disabled="true"
+            aria-controls="hourly-forecast-slider"
+          >
+            &#10094;
+          </button>
+          <button
+            class="next"
+            title="Next Hour"
+            aria-label="Next Hour"
+            aria-controls="hourly-forecast-slider"
+            aria-disabled="false"
+          >
+            &#10095;
+          </button>
           <ul class="hourly-forecast__forecast-list"></ul>
         </div>
       </section>
