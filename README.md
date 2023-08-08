@@ -58,8 +58,8 @@ The app will be available at `http://localhost:8080/`
 - [WeatherAPI](https://www.weatherapi.com/): To get the weather forecast of a city
 - [date-fns](https://date-fns.org/): To manipulate dates
 
-## TODO
+## Roadmap
 
-- [ ] Make the app responsive for mobile devices
+- [x] Make the app responsive for mobile devices
 - [x] Add unit tests
-- [ ] Improve accessibility
+- [x] Improve accessibility
