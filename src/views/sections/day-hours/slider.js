@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 const handleSliderChange = (app) => {
   const isWideScreen = window.innerWidth > 720;
+  const isMobileScreen = window.innerWidth <= 720;
   const dayHours = app.getDayHours();
   const currentHourIndex = dayHours.getCurrent().getHourIndexInSortedArray();
 
@@ -18,7 +19,7 @@ const handleSliderChange = (app) => {
   if (isWideScreen && currentHourIndex > 20) {
     prevButton.classList.add('hidden');
     nextButton.classList.add('hidden');
-  } else if (!isWideScreen && currentHourIndex === 23) {
+  } else if (isMobileScreen && currentHourIndex === 23) {
     prevButton.classList.add('hidden');
     nextButton.classList.add('hidden');
   }
